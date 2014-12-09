@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Training.CMS/Training.Data/obj/
+/Training.CMS/Training.Domain/obj
+/Training.CMS/Training.Service/obj/
+/Training.CMS/Training.Web/obj/
+/Training.CMS/Training.Test/obj/
