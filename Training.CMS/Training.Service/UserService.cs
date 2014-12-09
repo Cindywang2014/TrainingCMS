@@ -5,10 +5,16 @@ using Training.Domain;
 namespace Training.Service
 {
    public class UserService:IUserService
-    {
+   {
+        private readonly IUserStore UserStore;
+
+        public UserService()
+        {
+            UserStore = StoreFactory.GetUserStore();
+        }
         public int AddUser(User user)
         {
-            return StoreFactory.GetUserStore().AddUser(user);
+            return UserStore.AddUser(user);
         }
 
         public int UpdateUser(User user)

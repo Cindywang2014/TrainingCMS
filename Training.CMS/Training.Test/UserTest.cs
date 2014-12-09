@@ -16,7 +16,7 @@ namespace Training.Test
                 Password = "Test123.",
                 EmailAddress = "Test@163.com",
                 Country = "China",
-                Region = "Heilongjiang harbin"
+                Region = "Heilongjiang harbin 1125"
             };
 
             var userService = new UserService();
