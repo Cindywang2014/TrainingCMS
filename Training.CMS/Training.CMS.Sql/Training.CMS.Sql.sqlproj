@@ -62,6 +62,9 @@
   <ItemGroup>
     <Build Include="Tables\User.sql" />
     <Build Include="Tables\MovieType.sql" />
+    <Build Include="Tables\Country.sql" />
+    <Build Include="Tables\Movie.sql" />
+    <Build Include="Tables\Region.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Training.CMS.Sql.publish.xml" />
