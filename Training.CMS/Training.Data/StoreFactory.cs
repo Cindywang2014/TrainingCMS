@@ -6,5 +6,10 @@
         {
             return new UserStore();
         }
+
+        public static IMovieStore GetMovieStore()
+        {
+            return new MovieStore();
+        }
     }
 }
