@@ -12,7 +12,7 @@ namespace Training.Service
         {
             UserStore = StoreFactory.GetUserStore();
         }
-        public int AddUser(User user)
+        public int AddUser(User user) 
         {
             return UserStore.AddUser(user);
         }
