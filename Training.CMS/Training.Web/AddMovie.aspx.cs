@@ -19,6 +19,11 @@ namespace Training.Web
             if (!IsPostBack)
             {
                 UploadDateBox.Text = DateTime.Now.ToString();
+                var source = new MovieTypeService().GetMovieTypes();
+                MovieTypeList.DataSource = source;
+                MovieTypeList.DataTextField = "TypeName";
+                MovieTypeList.DataValueField = "Id";
+                MovieTypeList.DataBind();
             }
         }
 
@@ -29,7 +34,7 @@ namespace Training.Web
             ImageUpload.SaveAs(ipath);
             var movie = new Movie()
             {
-                MovieTypeId = Convert.ToInt32(MovieTypeIdBox.Text),
+                MovieTypeId = Convert.ToInt32(MovieTypeList.SelectedValue),
                 MovieName = MovieNameBox.Text,
                 Description = DescriptionBox.Text,
                 Actor = ActorBox.Text,
