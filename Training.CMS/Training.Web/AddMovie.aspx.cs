@@ -38,6 +38,7 @@ namespace Training.Web
                 IsAudit = PassedButten.Checked
             };
             var movieService = new MovieService();
+
             movieService.AddMovie(movie);
         }
 

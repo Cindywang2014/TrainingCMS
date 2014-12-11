@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Country.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieType.cs" />
     <Compile Include="User.cs" />

@@ -19,12 +19,15 @@
         <asp:TextBox ID="EmailAddressText" runat="server" OnTextChanged="EmailAddressText_TextChanged"></asp:TextBox>
         <br />
         <asp:Label ID="Country" runat="server" Text="Country:"></asp:Label>
-        <asp:DropDownList ID="CountryDropDownList" runat="server">
+        <asp:DropDownList ID="CountryDropDownList" runat="server" >
         </asp:DropDownList>
         <br />
         <asp:Label ID="Region" runat="server" Text="Region:"></asp:Label>
-        <asp:DropDownList ID="RegionDropDownList" runat="server">
-        </asp:DropDownList>
+        <%--<asp:DropDownList ID="RegionDropDownList" runat="server"  >
+        </asp:DropDownList>--%>
+       
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+       
         <br />
         <br />
         <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="提交注册信息" />
