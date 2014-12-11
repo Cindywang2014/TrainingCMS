@@ -16,24 +16,31 @@ namespace Training.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                UploadDateBox.Text = DateTime.Now.ToString();
+            }
         }
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {
+            string name = ImageUpload.FileName;
+            string ipath = Server.MapPath(@"~\App_Data\Images\") + name;
+            ImageUpload.SaveAs(ipath);
             var movie = new Movie()
             {
                 MovieTypeId = Convert.ToInt32(MovieTypeIdBox.Text),
                 MovieName = MovieNameBox.Text,
                 Description = DescriptionBox.Text,
                 Actor = ActorBox.Text,
-                Image = ActorBox.Text,
+                Image = @"\App_Data\Images\" + name,
                 UploadDate = DateTime.Now,
-                IsAudit = true
+                IsAudit = PassedButten.Checked
             };
             var movieService = new MovieService();
             movieService.AddMovie(movie);
         }
+
     }
 }
- 
+//tbStartTime.Value = DateTime.Now.ToString("yyyy-MM-dd");

@@ -76,22 +76,22 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox UploadDateBox;
         
         /// <summary>
-        /// Passed control.
+        /// PassedButten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Passed;
+        protected global::System.Web.UI.WebControls.RadioButton PassedButten;
         
         /// <summary>
-        /// Fail control.
+        /// FailButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Fail;
+        protected global::System.Web.UI.WebControls.RadioButton FailButton;
         
         /// <summary>
         /// UploadButton control.

@@ -1,10 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddMovie.aspx.cs" Inherits="Training.Web.AddMovie" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>新建影片</title>  
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,11 +23,11 @@
         <asp:TextBox ID="DescriptionBox" runat="server"></asp:TextBox>
         <br />
         上传时间<br />
-        <asp:TextBox ID="UploadDateBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="UploadDateBox" runat="server" ReadOnly="true"></asp:TextBox>
         <br />
         审核<br />
-        <asp:RadioButton ID="Passed" runat="server" />
-        <asp:RadioButton ID="Fail" runat="server" Checked="True" />
+        <asp:RadioButton ID="PassedButten" runat="server" Font-Names="Arial Black" ForeColor="#33CC33" GroupName="IsAudit" Text="Passed" />
+        <asp:RadioButton ID="FailButton" Checked="true" runat="server" Font-Names="Arial Black" ForeColor="Red" GroupName="IsAudit" Text="Fail" />
         <br />
         <asp:Button ID="UploadButton" runat="server" OnClick="UploadButton_Click" Text="提交" />
     </form>
