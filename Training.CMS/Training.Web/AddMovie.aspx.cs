@@ -18,7 +18,6 @@ namespace Training.Web
         {
             if (!IsPostBack)
             {
-                UploadDateBox.Text = DateTime.Now.ToString();
                 var source = new MovieTypeService().GetMovieTypes();
                 MovieTypeList.DataSource = source;
                 MovieTypeList.DataTextField = "TypeName";

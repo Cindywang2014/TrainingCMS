@@ -22,12 +22,13 @@
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:BoundField DataField="UploadDate" HeaderText="UploadDate" SortExpression="UploadDate" />
                     <asp:CheckBoxField DataField="IsAudit" HeaderText="IsAudit" SortExpression="IsAudit" />
+                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:CommandField ShowEditButton="True" />
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="Movie" runat="server" ConnectionString="<%$ ConnectionStrings:Movie %>" SelectCommand="SELECT * FROM [Movie]"></asp:SqlDataSource>
 
         </div>
     </form>
-    &nbsp;
-</body>
+    </body>
 </html>
