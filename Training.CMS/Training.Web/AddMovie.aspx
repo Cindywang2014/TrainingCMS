@@ -11,7 +11,7 @@
         <asp:TextBox ID="MovieNameBox" runat="server"></asp:TextBox>
         <br />
         电影类别<br />
-        <asp:TextBox ID="MovieTypeIdBox" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="MovieTypeList" runat="server"></asp:DropDownList>
         <br />
         导演<br />
         <asp:TextBox ID="ActorBox" runat="server"></asp:TextBox>
