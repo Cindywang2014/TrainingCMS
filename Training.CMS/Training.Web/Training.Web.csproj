@@ -65,12 +65,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddMovie.aspx" />
     <Content Include="Global.asax" />
     <Content Include="MasterPage.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMovie.aspx.cs">
+      <DependentUpon>AddMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMovie.aspx.designer.cs">
+      <DependentUpon>AddMovie.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -90,7 +97,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.Domain\Training.Domain.csproj">
