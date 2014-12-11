@@ -34,6 +34,9 @@ namespace Training.Data
         /// <returns></returns>
         DataTable GetMovies();
 
+        DataTable GetMovies(string typename,bool istypename);
+
+        DataTable GetMovies(string typename,string actor);
 
     }
 }

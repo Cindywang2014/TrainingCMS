@@ -40,12 +40,21 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.Button SubmitCondition;
         
         /// <summary>
-        /// EligibleMovies control.
+        /// ConsilientMovies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView EligibleMovies;
+        protected global::System.Web.UI.WebControls.ListView ConsilientMovies;
+        
+        /// <summary>
+        /// Movie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Movie;
     }
 }

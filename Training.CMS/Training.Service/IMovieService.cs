@@ -8,7 +8,7 @@ using Training.Domain;
 
 namespace Training.Service
 {
-    interface IMovieServer
+    public interface IMovieService
     {
         /// <summary>
         /// add a movie
@@ -33,5 +33,9 @@ namespace Training.Service
         /// </summary>
         /// <returns></returns>
         DataTable GetMovies();
+
+        DataTable GetMovies(string typename,bool istypename);
+
+        DataTable GetMovies(string typename,string actor);
     }
 }

@@ -9,7 +9,7 @@ using Training.Domain;
 
 namespace Training.Service
 {
-    public class MovieService:IMovieServer
+    public class MovieService : IMovieService
     {
         public int AddMovie(Movie movie)
         {
@@ -29,6 +29,15 @@ namespace Training.Service
         public DataTable GetMovies()
         {
             throw new NotImplementedException();
+        }
+        public DataTable GetMovies(string typename, bool istypename)
+        {
+            return StoreFactory.GetMovieStore().GetMovies(typename, istypename);
+        }
+
+        public DataTable GetMovies(string typename, string actor)
+        {
+            return StoreFactory.GetMovieStore().GetMovies(typename, actor);
         }
     }
 

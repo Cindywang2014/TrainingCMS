@@ -18,11 +18,13 @@ namespace Training.Web
 
         private void initialize()
         {
-            DataTable datasource = new MovieTypeService().GetMovieTypes();
+            DataTable datasource = ServiceFactory.GetMovieService().GetMovies("s", true);
             ChooseMovieType.DataSource = datasource;
-            ChooseMovieType.DataTextField = "TypeName";
+            ChooseMovieType.DataTextField = "Id";
             ChooseMovieType.DataValueField = "Id";
             ChooseMovieType.DataBind();
+            //ConsilientMovies.DataSource = datasource;
+            //ConsilientMovies.DataBind();
         }
     }
 }

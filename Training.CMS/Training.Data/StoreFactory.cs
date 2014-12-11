@@ -11,5 +11,10 @@
         {
             return new MovieStore();
         }
+
+        public static IMovieTypeStore GetMovieTypeStore()
+        {
+            return new MovieTypeStore();
+        }
     }
 }

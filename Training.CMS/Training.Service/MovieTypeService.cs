@@ -6,9 +6,16 @@ namespace Training.Service
 {
     public class MovieTypeService : IMovieTypeService
     {
+        private readonly IMovieTypeStore MovieTypeStore;
+
+        public MovieTypeService()
+        {
+            MovieTypeStore = StoreFactory.GetMovieTypeStore();
+        }
         public int AddMovieType(MovieType movietype)
         {
-            return new MovieTypeStore().AddMovieType(movietype);
+
+            return MovieTypeStore.AddMovieType(movietype);
         }
         public int UpdateMovieType(MovieType movietype)
         {
