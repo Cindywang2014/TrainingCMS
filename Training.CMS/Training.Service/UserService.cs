@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 using Training.Data;
 using Training.Domain;
 
@@ -31,5 +32,13 @@ namespace Training.Service
         {
             throw new System.NotImplementedException();
         }
-    }
+        //public SqlDataReader CheckRegisterUser(User user) {
+        //    return UserStore.CheckRegisterUser(user);
+        //}
+
+        //public object CheckRegisterUser()
+        //{
+        //    throw new System.NotImplementedException();
+        //}
+   }
 }
