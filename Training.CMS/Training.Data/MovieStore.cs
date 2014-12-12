@@ -8,7 +8,7 @@ using Training.Domain;
 
 namespace Training.Data
 {
-    public  class MovieStore : IMovieStore
+    public class MovieStore : IMovieStore
     {
         public int AddMovie(Movie movie)
         {
@@ -42,37 +42,42 @@ namespace Training.Data
             throw new NotImplementedException();
         }
 
-        public System.Data.DataTable GetMovies(string typename, bool istypename)
+        public System.Data.DataTable GetMovies(string typename, string actor)
         {
-            if (istypename)
+            if (!typename.Equals("全部") && string.IsNullOrEmpty(actor))
             {
-                var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName)");
+                var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName) and IsAudit = 1 order by UploadDate desc");
                 var parameter = new List<SqlParameter>
-            {
+                {
                 new SqlParameter("@TypeName",typename)
-            };
+                };
+                return DBHelper.GetDataSet(sql, parameter.ToArray());
+            }
+            else if (!string.IsNullOrEmpty(actor) && typename.Equals("全部"))
+            {
+                var sql = string.Format(@"select * from [dbo].[Movie] where Actor = @Actor order by UploadDate desc");
+                var parameter = new List<SqlParameter>
+                {
+                    new SqlParameter("@Actor",actor)
+                };
+                return DBHelper.GetDataSet(sql, parameter.ToArray());
+            }
+            else if (!string.IsNullOrEmpty(actor) && !string.IsNullOrEmpty(typename))
+            {
+                var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName) and Actor = @Actor and IsAudit = 1 order by UploadDate desc");
+                var parameter = new List<SqlParameter>
+                {
+                new SqlParameter("@TypeName",typename),
+                new SqlParameter("@Actor",actor)
+                };
                 return DBHelper.GetDataSet(sql, parameter.ToArray());
             }
             else
             {
-                var sql = string.Format(@"select * from [dbo].[Movie] where Actor = @Actor");
-                var parameter = new List<SqlParameter>
-                {
-                    new SqlParameter("@Actor",typename)
-                };
-                return DBHelper.GetDataSet(sql, parameter.ToArray());
+                var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit = 1 order by UploadDate desc");
+                return DBHelper.GetDataSet(sql);
             }
-        }
 
-        public System.Data.DataTable GetMovies(string typename, string actor)
-        {
-            var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName) and Actor = @Actor");
-            var parameter = new List<SqlParameter>
-            {
-                new SqlParameter("@TypeName",typename),
-                new SqlParameter("@Actor",actor)
-            };
-            return DBHelper.GetDataSet(sql, parameter.ToArray());
         }
     }
 }

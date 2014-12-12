@@ -25,7 +25,7 @@ namespace Training.Data
            throw new System.NotImplementedException();
        }
 
-       public int DeteleUser(User user)
+       public int deleteUser(User user)
        {
            throw new System.NotImplementedException();
        }

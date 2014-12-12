@@ -1,21 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.aspx.cs" Inherits="Training.Web.MasterPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="Training.Web.HomePage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link href="/dist/css/MasterPage.css" rel="stylesheet" />
+    <title>MoviesServer</title>
 </head>
 <body>
     <form runat="server">
         <header>
-            <asp:DropDownList ID="ChooseMovieType" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ChooseMovieType" runat="server" AppendDataBoundItems="True">
+                <asp:ListItem>全部</asp:ListItem>
+            </asp:DropDownList>
             <asp:TextBox ID="InputActor" runat="server"></asp:TextBox>
-            <asp:Button ID="SubmitCondition" runat="server" Text="Search.." />
+            <asp:Button ID="SubmitCondition" runat="server" Text="Search.." OnClick="SubmitCondition_Click" />
         </header>
         <section>
-            <asp:ListView ID="ConsilientMovies" runat="server" DataSourceID="Movie">
-                <AlternatingItemTemplate>
+            <asp:ListView ID="ConsilientMovies" runat="server">
+                <%--<AlternatingItemTemplate>
                     <li style="">MovieName:
                         <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("Image") %>' />
                         <br />
@@ -29,8 +32,8 @@
                         <asp:Label ID="ImageLabel" runat="server" Text='<%# Eval("MovieName") %>' />
                         <br />
                     </li>
-                </AlternatingItemTemplate>
-                <EditItemTemplate>
+                </AlternatingItemTemplate>--%>
+                <%--<EditItemTemplate>
                     <li style="">MovieName:
                         <asp:TextBox ID="MovieNameTextBox" runat="server" Text='<%# Bind("Image") %>' />
                         <br />
@@ -46,11 +49,11 @@
                         <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
                     </li>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
+                </EditItemTemplate>--%>
+                <%--<EmptyDataTemplate>
                     No data was returned.
-                </EmptyDataTemplate>
-                <InsertItemTemplate>
+                </EmptyDataTemplate>--%>
+                <%--<InsertItemTemplate>
                     <li style="">MovieName:
                         <asp:TextBox ID="MovieNameTextBox" runat="server" Text='<%# Bind("Image") %>' />
                         <br />
@@ -66,23 +69,27 @@
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
                     </li>
-                </InsertItemTemplate>
-                <ItemSeparatorTemplate>
+                </InsertItemTemplate>--%>
+                <%-- <ItemSeparatorTemplate>
                     <br />
-                </ItemSeparatorTemplate>
+                </ItemSeparatorTemplate>--%>
                 <ItemTemplate>
-                    <li style="">MovieName:
-                        <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("Image") %>' />
-                        <br />
-                        Description:
-                        <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                        <br />
-                        Actor:
+                    <li style="display: table; margin-top: 10px;">
+                        <div style="float: left;">
+                            <asp:Image ID="Image" runat="server" Height="100px" Width="100px" src='<%# Eval("Image") %>' />
+                        </div>
+                        <div style="margin-left: 20px; padding-top: 20px; float: left; font-size: 13px;">
+                            <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("MovieName") %>' />
+                            <br />
+                            Actor:
                         <asp:Label ID="ActorLabel" runat="server" Text='<%# Eval("Actor") %>' />
-                        <br />
-                        Image:
-                        <asp:Label ID="ImageLabel" runat="server" Text='<%# Eval("MovieName") %>' />
-                        <br />
+                            <br />
+                            Description:
+                            <br />
+                            &nbsp;&nbsp;
+                            <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
+                        </div>
+                        <div style="clear: both;"></div>
                     </li>
                 </ItemTemplate>
                 <LayoutTemplate>
@@ -92,7 +99,7 @@
                     <div style="">
                     </div>
                 </LayoutTemplate>
-                <SelectedItemTemplate>
+                <%--<SelectedItemTemplate>
                     <li style="">MovieName:
                         <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("Image") %>' />
                         <br />
@@ -106,9 +113,8 @@
                         <asp:Label ID="ImageLabel" runat="server" Text='<%# Eval("MovieName") %>' />
                         <br />
                     </li>
-                </SelectedItemTemplate>
+                </SelectedItemTemplate>--%>
             </asp:ListView>
-            <asp:SqlDataSource ID="Movie" runat="server" ConnectionString="Data Source=(local);Initial Catalog=Movie;User ID=sa;Password=123" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Image], [Description], [Actor], [MovieName] FROM [Movie]"></asp:SqlDataSource> 
         </section>
     </form>
 </body>

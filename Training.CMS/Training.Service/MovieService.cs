@@ -30,10 +30,6 @@ namespace Training.Service
         {
             throw new NotImplementedException();
         }
-        public DataTable GetMovies(string typename, bool istypename)
-        {
-            return StoreFactory.GetMovieStore().GetMovies(typename, istypename);
-        }
 
         public DataTable GetMovies(string typename, string actor)
         {

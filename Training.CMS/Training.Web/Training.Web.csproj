@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dist\css\flat-ui.css.map" />
+    <Content Include="dist\css\MasterPage.css" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.eot" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.ttf" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.woff" />
@@ -144,7 +145,7 @@
     <Content Include="dist\js\vendor\video-js.swf" />
     <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
-    <Content Include="MasterPage.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="MovieMaintenance.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config">
@@ -162,12 +163,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MasterPage.aspx.cs">
-      <DependentUpon>MasterPage.aspx</DependentUpon>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPage.aspx.designer.cs">
-      <DependentUpon>MasterPage.aspx</DependentUpon>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MovieMaintenance.aspx.cs">
       <DependentUpon>MovieMaintenance.aspx</DependentUpon>

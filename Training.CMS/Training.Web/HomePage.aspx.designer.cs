@@ -10,7 +10,7 @@
 namespace Training.Web {
     
     
-    public partial class MasterPage {
+    public partial class HomePage {
         
         /// <summary>
         /// ChooseMovieType control.
@@ -47,14 +47,5 @@ namespace Training.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ConsilientMovies;
-        
-        /// <summary>
-        /// Movie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Movie;
     }
 }
