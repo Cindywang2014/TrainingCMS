@@ -39,7 +39,7 @@ namespace Training.Web
                 Actor = ActorBox.Text,
                 Image = @"~\Images\" + name,
                 UploadDate = DateTime.Now,
-                IsAudit = PassedButten.Checked
+                IsAudit = false
             };
             var movieService = new MovieService();
             movieService.AddMovie(movie);
