@@ -29,17 +29,25 @@ namespace Training.Web
             ChooseMovieType.DataBind();
             ConsilientMovies.DataSource = getmovies;
             ConsilientMovies.DataBind();
-            //ConsilientMovies.DataSource = datasource;
-            //ConsilientMovies.DataBind();
         }
 
-        protected void SubmitCondition_Click(object sender, EventArgs e)
+        private void ShowQueryResult()
         {
             var type = ChooseMovieType.SelectedItem.Text;
             var actor = InputActor.Text;
             DataTable source = ServiceFactory.GetMovieService().GetMovies(type, actor);
             ConsilientMovies.DataSource = source;
             ConsilientMovies.DataBind();
+        }
+
+        protected void SubmitCondition_Click(object sender, EventArgs e)
+        {
+            ShowQueryResult();
+        }
+
+        protected void ChooseMovieType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowQueryResult();
         }
 
     }

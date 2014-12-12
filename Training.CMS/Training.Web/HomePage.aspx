@@ -10,9 +10,11 @@
 <body>
     <form runat="server">
         <header>
-            <asp:DropDownList ID="ChooseMovieType" runat="server" AppendDataBoundItems="True">
+            Choose MovieType:
+            <asp:DropDownList ID="ChooseMovieType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseMovieType_SelectedIndexChanged" AppendDataBoundItems="True">
                 <asp:ListItem>全部</asp:ListItem>
             </asp:DropDownList>
+
             <asp:TextBox ID="InputActor" runat="server"></asp:TextBox>
             <asp:Button ID="SubmitCondition" runat="server" Text="Search.." OnClick="SubmitCondition_Click" />
         </header>
