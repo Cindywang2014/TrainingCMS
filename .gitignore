@@ -11,3 +11,5 @@
 /Training.CMS/Training.CMS.Sql/obj/
 /Training.CMS/Training.Test/bin/
 /Training.CMS/Training.Web/bin/
+
+*.suo
