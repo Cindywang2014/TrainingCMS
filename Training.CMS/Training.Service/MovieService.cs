@@ -23,12 +23,12 @@ namespace Training.Service
 
         public int DeleteMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            return StoreFactory.GetMovieStore().DeleteMovie(movie);
         }
 
         public DataTable GetMovies()
         {
-            throw new NotImplementedException();
+            return StoreFactory.GetMovieStore().GetMovies();
         }
 
         public DataTable GetMovies(string typename, string actor)

@@ -3,8 +3,14 @@
 ################################################################################
 
 /Training.CMS/Training.Data/obj/
-/Training.CMS/Training.Domain/obj
+/Training.CMS/Training.Data/bin/
+/Training.CMS/Training.Data/bin/Debug/
+/Training.CMS/Training.Domain/obj/
+/Training.CMS/Training.Domain/bin/
+/Training.CMS/Training.Domain/bin/Debug/
 /Training.CMS/Training.Service/obj/
+/Training.CMS/Training.Service/bin/
+/Training.CMS/Training.Service/bin/Debug/
 /Training.CMS/Training.Web/obj/
 /Training.CMS/Training.Test/obj/
 /Training.CMS/Training.CMS.Sql/bin/
