@@ -35,14 +35,14 @@ namespace Training.Data
            throw new System.NotImplementedException();
        }
 
-       //public SqlDataReader CheckRegisterUser(User user)
-       //{
-       //    var sql = string.Format(@" select * from [dbo].[User] where UserName='@UserName'");
-       //    var parameters = new List<SqlParameter>
-       //    {
-       //        new SqlParameter("@UserName", user.UserName),
-       //    };
-       //    return DBHelper.GetReader(sql, parameters.ToArray());
-       //}
+       public SqlDataReader CheckRegisterUser(User user)
+       {
+           var sql = string.Format(@" select * from [dbo].[User] where UserName='@UserName'");
+           var parameters = new List<SqlParameter>
+           {
+               new SqlParameter("@UserName", user.UserName),
+           };
+           return DBHelper.GetReader(sql, parameters.ToArray());
+       }
    }
 }

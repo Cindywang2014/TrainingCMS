@@ -32,9 +32,10 @@ namespace Training.Service
         {
             throw new System.NotImplementedException();
         }
-        //public SqlDataReader CheckRegisterUser(User user) {
-        //    return UserStore.CheckRegisterUser(user);
-        //}
+        public SqlDataReader CheckRegisterUser(User user)
+        {
+            return UserStore.CheckRegisterUser(user);
+        }
 
         //public object CheckRegisterUser()
         //{

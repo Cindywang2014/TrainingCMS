@@ -14,6 +14,7 @@ namespace Training.Web
 {
     public partial class Register : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -62,21 +63,29 @@ namespace Training.Web
 
         protected void UserNameTextRegister_TextChanged(object sender, EventArgs e)
         {
-            //var userService = new UserService();
 
-            //var result = userService.CheckRegisterUser();
-            //result.
-            //    reader.Read();  
+            var user = new User
+            {
+                UserName = UserNameTextRegister.Text,
+            };
+            var userService = new UserService();
+
+            var result = userService.CheckRegisterUser(user);
+            result.Read();  
 
             if (UserNameTextRegister.Text.Trim().Length == 0)
             {
                 Response.Write("<script>alert('请注意：用户名不能为空！');</script>");
               
             }
-            //else if (reader.HasRows)
-            //{
-            //    Response.Write("<script>alert('该用户已注册，请使用其他用户名！');</script>");
-            //}
+            else if (result.HasRows)
+            {
+                Response.Write("<script>alert('该用户已注册，请使用其他用户名！');</script>");
+
+            }
+            else {
+                result.Close();
+            }
             
             
         }
@@ -112,6 +121,7 @@ namespace Training.Web
 
             }
         }
+
 
        
     }
