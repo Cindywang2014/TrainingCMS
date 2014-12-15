@@ -25,11 +25,12 @@ namespace Training.Data
            throw new System.NotImplementedException();
        }
 
-<<<<<<< HEAD
        public int DeteleUser(User user)
-=======
+       {
+           return 1;
+       }
+
        public int deleteUser(User user)
->>>>>>> origin/master
        {
            throw new System.NotImplementedException();
        }
@@ -38,7 +39,6 @@ namespace Training.Data
        {
            throw new System.NotImplementedException();
        }
-<<<<<<< HEAD
 
        public SqlDataReader CheckRegisterUser(User user)
        {
@@ -49,7 +49,5 @@ namespace Training.Data
            };
            return DBHelper.GetReader(sql, parameters.ToArray());
        }
-=======
->>>>>>> origin/master
    }
 }

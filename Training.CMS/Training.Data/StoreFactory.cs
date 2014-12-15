@@ -16,14 +16,10 @@
         {
             return new MovieStore();
         }
-
-<<<<<<< HEAD
         
-=======
         public static IMovieTypeStore GetMovieTypeStore()
         {
             return new MovieTypeStore();
         }
->>>>>>> origin/master
     }
 }
