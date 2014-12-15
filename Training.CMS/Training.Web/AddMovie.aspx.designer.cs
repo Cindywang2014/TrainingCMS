@@ -31,13 +31,13 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox MovieNameBox;
         
         /// <summary>
-        /// MovieTypeIdBox control.
+        /// MovieTypeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MovieTypeIdBox;
+        protected global::System.Web.UI.WebControls.DropDownList MovieTypeList;
         
         /// <summary>
         /// ActorBox control.
@@ -65,15 +65,6 @@ namespace Training.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DescriptionBox;
-        
-        /// <summary>
-        /// UploadDateBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UploadDateBox;
         
         /// <summary>
         /// PassedButten control.

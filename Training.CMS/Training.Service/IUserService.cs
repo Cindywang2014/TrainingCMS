@@ -4,7 +4,7 @@ using Training.Domain;
 
 namespace Training.Service
 {
-    interface IUserService
+    public interface IUserService
     {
         /// <summary>
         /// add a user

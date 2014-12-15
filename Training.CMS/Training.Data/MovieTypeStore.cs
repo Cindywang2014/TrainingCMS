@@ -7,14 +7,15 @@ namespace Training.Data
 {
     public class MovieTypeStore : IMovieTypeStore
     {
+        private string Command;
         public int AddMovieType(MovieType movietype)
         {
-            string command = string.Format(@"insert into [dbo].[MovieType](TypeName) values(@TypeName)");
+            Command = string.Format(@"insert into [dbo].[MovieType](TypeName) values(@TypeName)");
             var parameters = new List<SqlParameter>
             {
                 new SqlParameter("@TypeName",movietype.TypeName)
             };
-            return DBHelper.ExecuteCommand(command, parameters.ToArray());
+            return DBHelper.ExecuteCommand(Command, parameters.ToArray());
         }
 
         public int UpdateMovieType(MovieType movietype)
@@ -29,8 +30,8 @@ namespace Training.Data
 
         public DataTable GetMovieTypes()
         {
-            string command = string.Format(@"select * from [dbo].[MovieType]");
-            return DBHelper.GetDataSet(command);
+            Command = string.Format(@"select * from [dbo].[MovieType]");
+            return DBHelper.GetDataSet(Command);
         }
     }
 }

@@ -18,24 +18,28 @@ namespace Training.Web
         {
             if (!IsPostBack)
             {
-                UploadDateBox.Text = DateTime.Now.ToString();
+                var source = new MovieTypeService().GetMovieTypes();
+                MovieTypeList.DataSource = source;
+                MovieTypeList.DataTextField = "TypeName";
+                MovieTypeList.DataValueField = "Id";
+                MovieTypeList.DataBind();
             }
         }
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {
             string name = ImageUpload.FileName;
-            string ipath = Server.MapPath(@"~\App_Data\Images\") + name;
+            string ipath = Server.MapPath(@"~\Images\") + name;
             ImageUpload.SaveAs(ipath);
             var movie = new Movie()
             {
-                MovieTypeId = Convert.ToInt32(MovieTypeIdBox.Text),
+                MovieTypeId = Convert.ToInt32(MovieTypeList.SelectedValue),
                 MovieName = MovieNameBox.Text,
                 Description = DescriptionBox.Text,
                 Actor = ActorBox.Text,
-                Image = @"\App_Data\Images\" + name,
+                Image = @"~\Images\" + name,
                 UploadDate = DateTime.Now,
-                IsAudit = PassedButten.Checked
+                IsAudit = false
             };
             var movieService = new MovieService();
 

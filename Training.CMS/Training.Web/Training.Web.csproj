@@ -57,6 +57,31 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dist\css\flat-ui.css.map" />
+    <Content Include="dist\css\MasterPage.css" />
+    <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.eot" />
+    <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.ttf" />
+    <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.woff" />
+    <Content Include="dist\fonts\glyphicons\selection.json" />
+    <Content Include="dist\fonts\lato\lato-black.eot" />
+    <Content Include="dist\fonts\lato\lato-black.ttf" />
+    <Content Include="dist\fonts\lato\lato-black.woff" />
+    <Content Include="dist\fonts\lato\lato-bold.eot" />
+    <Content Include="dist\fonts\lato\lato-bold.ttf" />
+    <Content Include="dist\fonts\lato\lato-bold.woff" />
+    <Content Include="dist\fonts\lato\lato-bolditalic.eot" />
+    <Content Include="dist\fonts\lato\lato-bolditalic.ttf" />
+    <Content Include="dist\fonts\lato\lato-bolditalic.woff" />
+    <Content Include="dist\fonts\lato\lato-italic.eot" />
+    <Content Include="dist\fonts\lato\lato-italic.ttf" />
+    <Content Include="dist\fonts\lato\lato-italic.woff" />
+    <Content Include="dist\fonts\lato\lato-light.eot" />
+    <Content Include="dist\fonts\lato\lato-light.ttf" />
+    <Content Include="dist\fonts\lato\lato-light.woff" />
+    <Content Include="dist\fonts\lato\lato-regular.eot" />
+    <Content Include="dist\fonts\lato\lato-regular.ttf" />
+    <Content Include="dist\fonts\lato\lato-regular.woff" />
+    <Content Include="dist\js\vendor\jquery.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -66,11 +91,68 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddMovie.aspx" />
+    <Content Include="dist\css\flat-ui.css" />
+    <Content Include="dist\css\flat-ui.min.css" />
+    <Content Include="dist\css\vendor\bootstrap.min.css" />
+    <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.svg" />
+    <Content Include="dist\fonts\lato\lato-black.svg" />
+    <Content Include="dist\fonts\lato\lato-bold.svg" />
+    <Content Include="dist\fonts\lato\lato-bolditalic.svg" />
+    <Content Include="dist\fonts\lato\lato-italic.svg" />
+    <Content Include="dist\fonts\lato\lato-light.svg" />
+    <Content Include="dist\fonts\lato\lato-regular.svg" />
+    <Content Include="dist\img\favicon.ico" />
+    <Content Include="dist\img\icons\png\Book.png" />
+    <Content Include="dist\img\icons\png\Calendar.png" />
+    <Content Include="dist\img\icons\png\Chat.png" />
+    <Content Include="dist\img\icons\png\Clipboard.png" />
+    <Content Include="dist\img\icons\png\Compas.png" />
+    <Content Include="dist\img\icons\png\Gift-Box.png" />
+    <Content Include="dist\img\icons\png\Infinity-Loop.png" />
+    <Content Include="dist\img\icons\png\Mail.png" />
+    <Content Include="dist\img\icons\png\Map.png" />
+    <Content Include="dist\img\icons\png\Pensils.png" />
+    <Content Include="dist\img\icons\png\Pocket.png" />
+    <Content Include="dist\img\icons\png\Retina-Ready.png" />
+    <Content Include="dist\img\icons\png\Toilet-Paper.png" />
+    <Content Include="dist\img\icons\png\Watches.png" />
+    <Content Include="dist\img\icons\svg\book.svg" />
+    <Content Include="dist\img\icons\svg\calendar.svg" />
+    <Content Include="dist\img\icons\svg\chat.svg" />
+    <Content Include="dist\img\icons\svg\clipboard.svg" />
+    <Content Include="dist\img\icons\svg\clocks.svg" />
+    <Content Include="dist\img\icons\svg\compas.svg" />
+    <Content Include="dist\img\icons\svg\gift-box.svg" />
+    <Content Include="dist\img\icons\svg\loop.svg" />
+    <Content Include="dist\img\icons\svg\mail.svg" />
+    <Content Include="dist\img\icons\svg\map.svg" />
+    <Content Include="dist\img\icons\svg\paper-bag.svg" />
+    <Content Include="dist\img\icons\svg\pencils.svg" />
+    <Content Include="dist\img\icons\svg\retina.svg" />
+    <Content Include="dist\img\icons\svg\ribbon.svg" />
+    <Content Include="dist\img\icons\svg\toilet-paper.svg" />
+    <Content Include="dist\img\login\icon.png" />
+    <Content Include="dist\img\login\imac-2x.png" />
+    <Content Include="dist\img\login\imac.png" />
+    <Content Include="dist\img\tile\ribbon-2x.png" />
+    <Content Include="dist\img\tile\ribbon.png" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\js\flat-ui.js" />
+    <Content Include="dist\js\flat-ui.min.js" />
+    <Content Include="dist\js\vendor\html5shiv.js" />
+    <Content Include="dist\js\vendor\jquery.min.js" />
+    <Content Include="dist\js\vendor\respond.min.js" />
+    <Content Include="dist\js\vendor\video-js.swf" />
+    <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="MasterPage.aspx" />
+    <Content Include="HomePage.aspx" />
+    <Content Include="MovieMaintenance.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddMovie.aspx.cs">
@@ -92,10 +174,19 @@
     </Compile>
     <Compile Include="MasterPage.aspx.cs">
       <DependentUpon>MasterPage.aspx</DependentUpon>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPage.aspx.designer.cs">
-      <DependentUpon>MasterPage.aspx</DependentUpon>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MovieMaintenance.aspx.cs">
+      <DependentUpon>MovieMaintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieMaintenance.aspx.designer.cs">
+      <DependentUpon>MovieMaintenance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
@@ -107,7 +198,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Images\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.Domain\Training.Domain.csproj">
