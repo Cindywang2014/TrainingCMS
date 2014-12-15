@@ -17,5 +17,10 @@
 /Training.CMS/Training.CMS.Sql/obj/
 /Training.CMS/Training.Test/bin/
 /Training.CMS/Training.Web/bin/
-
+*.dll
+*.pdb
 *.suo
+*.Debug.config
+*.Release.config
+*.user
+*.dbmdl
