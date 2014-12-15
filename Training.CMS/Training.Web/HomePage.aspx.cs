@@ -11,6 +11,8 @@ namespace Training.Web
 {
     public partial class HomePage : System.Web.UI.Page
     {
+        private readonly IMovieService MovieService = ServiceFactory.GetMovieService();
+        private static int ListviewSelectedIndex;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,7 +23,7 @@ namespace Training.Web
 
         private void initialize()
         {
-            DataTable getmovies = ServiceFactory.GetMovieService().GetMovies("全部", "");
+            DataTable getmovies = MovieService.GetMovies("全部", "");
             DataTable datasource = ServiceFactory.GetMovieTypeService().GetMovieTypes();
             ChooseMovieType.DataSource = datasource;
             ChooseMovieType.DataTextField = "TypeName";
@@ -35,7 +37,7 @@ namespace Training.Web
         {
             var type = ChooseMovieType.SelectedItem.Text;
             var actor = InputActor.Text;
-            DataTable source = ServiceFactory.GetMovieService().GetMovies(type, actor);
+            DataTable source = MovieService.GetMovies(type, actor);
             ConsilientMovies.DataSource = source;
             ConsilientMovies.DataBind();
         }
@@ -48,6 +50,17 @@ namespace Training.Web
         protected void ChooseMovieType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowQueryResult();
+        }
+
+        protected void ConsilientMovies_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
+        {
+            ListviewSelectedIndex = e.NewSelectedIndex;
+            Response.Redirect("MovieDetails.aspx", true);
+        }
+
+        public int GetListviewSelectedIndex()
+        {
+            return ListviewSelectedIndex;
         }
 
     }
