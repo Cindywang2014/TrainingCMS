@@ -56,40 +56,22 @@ namespace Training.Data
 
         public DataTable GetMovies(string typename, string actor)
         {
-            if (!typename.Equals("全部") && !string.IsNullOrEmpty(actor))
+            if (typename.Equals("全部"))
             {
-                var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName=@TypeName) and Actor=@Actor and IsAudit=1 order by UploadDate desc");
-                var parameter = new List<SqlParameter>
-            {
-                new SqlParameter("@TypeName",typename),
-                new SqlParameter("@Actor",actor)
-            };
-                return DBHelper.GetDataSet(sql, parameter.ToArray());
-            }
-            else if (typename.Equals("全部") && !string.IsNullOrEmpty(actor))
-            {
-                var sql = string.Format(@"select * from [dbo].[Movie] where Actor=@Actor and IsAudit=1 order by UploadDate desc");
-                var parameter = new List<SqlParameter>
-                {
-                    new SqlParameter("@Actor",actor)
-                };
-                return DBHelper.GetDataSet(sql, parameter.ToArray());
-            }
-            else if (!typename.Equals("全部") && string.IsNullOrEmpty(actor))
-            {
-                var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName) and IsAudit=1 order by UploadDate desc");
-                var parameter = new List<SqlParameter>
-            {
-                new SqlParameter("@TypeName",typename)
-            };
-                return DBHelper.GetDataSet(sql, parameter.ToArray());
+                typename = "";
             }
             else
             {
-                var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 order by UploadDate desc");
-                return DBHelper.GetDataSet(sql);
+                typename = string.Format(" and MovieTypeId in (select Id from [dbo].[MovieType] where TypeName='{0}')", typename);
             }
 
+            if (!string.IsNullOrEmpty(actor))
+            {
+                actor = string.Format(" and Actor='{0}'", actor);
+            }
+
+            var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 {0}{1} order by UploadDate desc", typename, actor);
+            return DBHelper.GetDataSet(sql);
         }
     }
 }

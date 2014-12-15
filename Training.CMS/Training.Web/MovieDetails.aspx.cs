@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Training.Service;
+using System.Data;
 
 namespace Training.Web
 {
@@ -12,8 +13,11 @@ namespace Training.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int a = new HomePage().GetListviewSelectedIndex();
-            //Image1.ImageUrl = ServiceFactory.GetMovieService().GetMovies("全部", "").
+            int index = new HomePage().GetListviewSelectedIndex();
+            var rowdata = new HomePage().GetListViewSource().Rows[index];
+            MovieActors.Text = rowdata.ItemArray[4].ToString();
+            MovieDecriptions.Text = rowdata.ItemArray[3].ToString();
+            MovieImage.ImageUrl = rowdata.ItemArray[5].ToString();
         }
     }
 }

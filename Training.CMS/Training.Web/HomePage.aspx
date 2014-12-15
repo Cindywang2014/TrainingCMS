@@ -80,7 +80,7 @@
                     <div>
                         <asp:LinkButton ID="MovieLink" CommandName="Select" runat="server">
                             <div style="float: left;">
-                                <asp:Image ID="Image" runat="server" Height="100px" Width="100px" src='<%# Eval("Image") %>' />
+                                <asp:Image ID="Image" runat="server" Height="130px" Width="130px" src='<%# Eval("Image") %>' />
                             </div>
                             <div style="margin-left: 20px; padding-top: 20px; float: left; font-size: 13px;">
                                 <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("MovieName") %>' />
@@ -88,10 +88,8 @@
                                 Actor:
                                 <asp:Label ID="ActorLabel" runat="server" Text='<%# Eval("Actor") %>' />
                                 <br />
-                                Description:
-                                <br />
-                                &nbsp;&nbsp;
-                                <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
+                                UploadDate:
+                                <asp:Label ID="UploadDateLabel" runat="server" Text='<%# Eval("UploadDate") %>' />
                             </div>
                             <div style="clear: both;"></div>
                         </asp:LinkButton>
