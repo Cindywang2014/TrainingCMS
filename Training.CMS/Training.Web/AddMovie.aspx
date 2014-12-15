@@ -32,7 +32,7 @@
         <br />
         审核<br />
         <asp:RadioButton ID="PassedButten" runat="server" Font-Names="Arial Black" ForeColor="#33CC33" GroupName="IsAudit" Text="Passed" />
-        <asp:RadioButton ID="FailButton" Checked="true" runat="server" Font-Names="Arial Black" ForeColor="Red" GroupName="IsAudit" Text="Fail"/>
+        <asp:RadioButton ID="FailButton" runat="server" Font-Names="Arial Black" ForeColor="Red" GroupName="IsAudit" Text="Fail"/>
         <br />
         <asp:Button ID="UploadButton" runat="server" OnClick="UploadButton_Click" Text="提交" class="btn btn-success"/>
     </form>

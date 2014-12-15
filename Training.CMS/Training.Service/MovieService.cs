@@ -25,12 +25,12 @@ namespace Training.Service
 
         public int UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            return MovieStore.UpdateMovie(movie);
         }
 
         public int DeleteMovie(Movie movie)
         {
-            return StoreFactory.GetMovieStore().DeleteMovie(movie);
+            return MovieStore.DeleteMovie(movie);
         }
 
         public DataTable GetMovies()

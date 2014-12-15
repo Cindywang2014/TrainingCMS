@@ -30,7 +30,12 @@ namespace Training.Data
 
         public int UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            var sql = string.Format(@"UPDATE [dbo].[Movie] SET IsAudit=1 WHERE (Id=@Id)");
+            var parameters = new List<SqlParameter>
+            { 
+                new SqlParameter("@Id",movie.Id),
+            };
+            return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
 
         public int DeleteMovie(Movie movie)
@@ -45,7 +50,7 @@ namespace Training.Data
 
         public DataTable GetMovies()
         {
-            var sql = string.Format(@"SELECT * FROM [dbo].[Movie]");
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie],[dbo].[MovieType] WHERE [dbo].[Movie].MovieTypeId=[dbo].[MovieType].Id");
             return DBHelper.GetDataSet(sql);
         }
 

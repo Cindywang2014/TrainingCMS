@@ -149,6 +149,7 @@
     <Content Include="MovieDetails.aspx" />
     <Content Include="MovieMaintenance.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="UpdateMovie.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateMovie.aspx.cs">
+      <DependentUpon>UpdateMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateMovie.aspx.designer.cs">
+      <DependentUpon>UpdateMovie.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
