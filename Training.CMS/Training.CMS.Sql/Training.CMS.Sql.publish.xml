@@ -4,7 +4,11 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseName>Movie</TargetDatabaseName>
     <DeployScriptFileName>Training.CMS.Sql.sql</DeployScriptFileName>
+<<<<<<< HEAD
+    <TargetConnectionString>Data Source=PC-201406020943;User ID=sa;Pooling=False</TargetConnectionString>
+=======
     <TargetConnectionString>Data Source=STEVEN-PC;Persist Security Info=True;User ID=sa;Pooling=False</TargetConnectionString>
+>>>>>>> origin/master
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
 </Project>

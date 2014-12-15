@@ -7,14 +7,23 @@
             return new UserStore();
         }
 
+        public static ICountryStore GetCountryStore()
+        {
+            return new CountryStore();
+        }
+
         public static IMovieStore GetMovieStore()
         {
             return new MovieStore();
         }
 
+<<<<<<< HEAD
+        
+=======
         public static IMovieTypeStore GetMovieTypeStore()
         {
             return new MovieTypeStore();
         }
+>>>>>>> origin/master
     }
 }

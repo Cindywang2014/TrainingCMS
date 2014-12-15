@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountryService.cs" />
+    <Compile Include="ICountryService.cs" />
+    <Compile Include="IMovieServer.cs" />
     <Compile Include="IMovieService.cs" />
     <Compile Include="IMovieTypeService.cs" />
     <Compile Include="IUserService.cs" />

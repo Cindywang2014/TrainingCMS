@@ -145,6 +145,8 @@
     <Content Include="dist\js\vendor\video-js.swf" />
     <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="MasterPage.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MovieMaintenance.aspx" />
     <Content Include="Register.aspx" />
@@ -163,6 +165,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.aspx.cs">
+      <DependentUpon>MasterPage.aspx</DependentUpon>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

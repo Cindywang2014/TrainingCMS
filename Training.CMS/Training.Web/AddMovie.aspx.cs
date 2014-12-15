@@ -42,6 +42,7 @@ namespace Training.Web
                 IsAudit = false
             };
             var movieService = new MovieService();
+
             movieService.AddMovie(movie);
         }
 

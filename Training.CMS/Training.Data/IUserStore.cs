@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 using Training.Domain;
 
 namespace Training.Data
@@ -28,6 +29,13 @@ namespace Training.Data
         /// </summary>
         /// <returns></returns>
         DataTable GetUsers();
+        /// <summary>
+        /// Check same user's name in register page
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        SqlDataReader CheckRegisterUser(User user);
+
 
     }
 }

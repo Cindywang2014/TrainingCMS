@@ -30,5 +30,7 @@
         /// User belong Region
         /// </summary>
         public string Region { get; set; }
+
+       
     }
 }
