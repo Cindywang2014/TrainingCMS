@@ -14,8 +14,10 @@ namespace Training.Web
 {
     public partial class AddMovie : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e) 
         {
+            
             if (!IsPostBack)
             {
                 var source = new MovieTypeService().GetMovieTypes();
@@ -48,4 +50,3 @@ namespace Training.Web
 
     }
 }
-//tbStartTime.Value = DateTime.Now.ToString("yyyy-MM-dd");

@@ -81,6 +81,29 @@ namespace Training.Web
             DataSourceBand();
         }
 
+
+        protected void MovieGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // If multiple ButtonField column fields are used, use the
+            // CommandName property to determine which button was clicked.
+            if (e.CommandName == "UpdateButton")
+            {
+                // Convert the row index stored in the CommandArgument
+                // property to an Integer.
+                int index = Convert.ToInt32(e.CommandArgument);
+                // Get the last name of the selected author from the appropriate
+                // cell in the GridView control.
+                GridViewRow selectedRow = MovieGridView.Rows[index];
+                TableCell contactId = selectedRow.Cells[0];
+                //string contact = contactId.Text;
+                //// Display the selected author.
+                //LabelTest.Text = "You selected " + contact + ".";
+                //Response.Redirect("AddMovie.aspx");
+                string querystr = contactId.Text;
+                Response.Redirect("UpdateMovie.aspx?MovieId=" + querystr);
+            }
+        }
+
       
 
     }

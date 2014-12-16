@@ -40,6 +40,15 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox UserNameTextRegister;
         
         /// <summary>
+        /// UserWrong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UserWrong;
+        
+        /// <summary>
         /// PasswordRegister control.
         /// </summary>
         /// <remarks>
@@ -58,22 +67,31 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox PasswordTextRegister;
         
         /// <summary>
-        /// Label1 control.
+        /// PasswordRepeat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label PasswordRepeat;
         
         /// <summary>
-        /// TextBox2 control.
+        /// PasswordRepeatText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox PasswordRepeatText;
+        
+        /// <summary>
+        /// PasswordWrong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PasswordWrong;
         
         /// <summary>
         /// EmailAddress control.
@@ -92,6 +110,15 @@ namespace Training.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailAddressText;
+        
+        /// <summary>
+        /// EmailWrong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmailWrong;
         
         /// <summary>
         /// Country control.

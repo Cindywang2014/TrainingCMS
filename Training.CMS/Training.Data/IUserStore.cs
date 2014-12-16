@@ -34,8 +34,8 @@ namespace Training.Data
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        SqlDataReader CheckRegisterUser(User user);
+        SqlDataReader CheckRegisterUser(string userName);
 
-
+        SqlDataReader CheckLogin(string userName,string password);
     }
 }
