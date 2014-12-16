@@ -22,7 +22,7 @@
         电影类别<br />
         <asp:DropDownList ID="MovieTypeList" runat="server" class="btn btn-default dropdown-toggle"></asp:DropDownList>
         <br />
-        导演<br />
+        演员<br />
         <asp:TextBox ID="ActorBox" runat="server"></asp:TextBox>
         <br />
         图片<br />
@@ -33,6 +33,7 @@
         审核<br />
         <asp:RadioButton ID="PassedButten" runat="server" Font-Names="Arial Black" ForeColor="#33CC33" GroupName="IsAudit" Text="Passed" />
         <asp:RadioButton ID="FailButton" runat="server" Font-Names="Arial Black" ForeColor="Red" GroupName="IsAudit" Text="Fail"/>
+        <asp:Label ID="LabelTest" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:Button ID="UploadButton" runat="server" OnClick="UploadButton_Click" Text="提交" class="btn btn-success"/>
     </form>

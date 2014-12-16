@@ -14,8 +14,10 @@ namespace Training.Web
 {
     public partial class AddMovie : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e) 
         {
+            
             if (!IsPostBack)
             {
                 var source = new MovieTypeService().GetMovieTypes();
@@ -23,6 +25,8 @@ namespace Training.Web
                 MovieTypeList.DataTextField = "TypeName";
                 MovieTypeList.DataValueField = "Id";
                 MovieTypeList.DataBind();
+                var MovieId = Request.QueryString["MovieId"];
+                LabelTest.Text = MovieId;               
             }
         }
 
@@ -44,8 +48,10 @@ namespace Training.Web
             var movieService = new MovieService();
 
             movieService.AddMovie(movie);
+            
+           
+
         }
 
     }
 }
-//tbStartTime.Value = DateTime.Now.ToString("yyyy-MM-dd");

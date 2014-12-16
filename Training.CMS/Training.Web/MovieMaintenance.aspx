@@ -11,12 +11,13 @@
         <div>
 
             <asp:GridView ID="MovieGridView" runat="server" AutoGenerateColumns="False"  Caption="Maintenance of the movie" 
-                  OnRowDeleting="MovieGridView_RowDeleting"
+                 OnRowCommand="MovieGridView_RowCommand"
+                 OnRowDeleting="MovieGridView_RowDeleting"
                  OnRowDataBound="MovieGridView_RowDataBound"
                  OnRowUpdating="MovieGridView_RowUpdating"
                  OnRowEditing="MovieGridView_RowEditing"
                  OnRowCancelingEdit="MovieGridView_RowCancelingEdit"
-                 OnPageIndexChanging="MovieGridView_PageIndexChanging" AllowPaging="true" PageSize="5">
+                 OnPageIndexChanging="MovieGridView_PageIndexChanging" AllowPaging="True" PageSize="5">
                 <PagerSettings NextPageText="下一页" PreviousPageText="前一页" />
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
@@ -32,8 +33,11 @@
                     <asp:CheckBoxField DataField="IsAudit" HeaderText="IsAudit" SortExpression="IsAudit" />
                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
                     <asp:CommandField AccessibleHeaderText="11" ShowEditButton="True" />
+                    <asp:ButtonField ButtonType="Link" Text="UpdateButton" CommandName="UpdateButton" />
                 </Columns>
             </asp:GridView>
+            <br />
+            <asp:Label ID="LabelTest" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
     </body>
