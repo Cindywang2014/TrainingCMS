@@ -14,13 +14,12 @@ namespace Training.Web
 {
     public partial class Register : System.Web.UI.Page
     {
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (!IsPostBack)
             {
-
                 var countryService = new CountryService();
                 var resultCountry = countryService.GetCountries();
                 CountryDropDownList.DataSource = resultCountry;
@@ -37,92 +36,81 @@ namespace Training.Web
             }
         }
 
-        public void AddUser()
-        {
-            var user = new User
-            {
-                UserName = UserNameTextRegister.Text,
-                Password = PasswordTextRegister.Text,
-                EmailAddress = EmailAddressText.Text,
-                Country = CountryDropDownList.SelectedItem.Text,
-                //Region = RegionDropDownList.SelectedItem.Text,
-                Region = TextBox1.Text,
-            };
-
-            var userService = new UserService();
-
-            var result = userService.AddUser(user);
-        }
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
+            if (CheckTextbox())
+            {
+                var userService = new UserService();
+                var user = new User
+                {
+                    UserName = UserNameTextRegister.Text,
+                    Password = PasswordTextRegister.Text,
+                    EmailAddress = EmailAddressText.Text,
+                    Country = CountryDropDownList.SelectedItem.Text,
+                    //Region = RegionDropDownList.SelectedItem.Text,
+                    Region = TextBox1.Text,
+                };
+                var resultName = userService.CheckRegisterUser(user.UserName);
+                resultName.Read();
+                bool exist = resultName.HasRows;
+                resultName.Close();
 
-            AddUser();
-            Response.Write("<script>alert('注册成功！');</script>");
-            //Response.Write("<script>alert('注册失败！');</script>");
+                if (exist)
+                {
+                    Response.Write("<script>alert('该用户已注册，请使用其他用户名！');</script>");
+                }
+                else
+                {
+                    userService.AddUser(user);
+                    Response.Write("<script>alert('注册成功！');</script>");
+                }
+            }
         }
 
-        protected void UserNameTextRegister_TextChanged(object sender, EventArgs e)
+        public bool CheckTextbox()
         {
-
-            var user = new User
+            bool satisfyThree = false;
+            Regex regemail = new Regex(@"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$");
+            if (string.IsNullOrWhiteSpace(UserNameTextRegister.Text.Trim()) || string.IsNullOrWhiteSpace(PasswordTextRegister.Text.Trim()))
             {
-                UserName = UserNameTextRegister.Text,
-            };
-            var userService = new UserService();
+                UserWrong.Visible = true;
+                UserWrong.Text = "请注意：密码或用户名不能为空！";
+                return satisfyThree;
+            }
 
-            var result = userService.CheckRegisterUser(user);
-            result.Read();  
-
-            if (UserNameTextRegister.Text.Trim().Length == 0)
+            if (!PasswordTextRegister.Text.Equals(PasswordRepeatText.Text))
             {
-                Response.Write("<script>alert('请注意：用户名不能为空！');</script>");
-              
+                PasswordWrong.Visible = true;
+                PasswordWrong.Text = "请注意：两次密码不一致！";
+                return satisfyThree;
             }
-            else if (result.HasRows)
+            if (!regemail.IsMatch(EmailAddressText.Text))
             {
-                Response.Write("<script>alert('该用户已注册，请使用其他用户名！');</script>");
+                EmailWrong.Visible = true;
+                EmailWrong.Text = "请注意：请填写正确的Email地址！";
+                return satisfyThree;
+            }
+            return satisfyThree=true;
+        }
 
-            }
-            else {
-                result.Close();
-            }
-            
-            
+        protected void PasswordRepeatText_TextChanged(object sender, EventArgs e)
+        {
+           
         }
 
         protected void PasswordTextRegister_TextChanged(object sender, EventArgs e)
         {
-            if (PasswordTextRegister.Text.Trim().Length == 0)
-            {
-                Response.Write("<script>alert('请注意：密码不能为空！');</script>");
-               
-            }
-            else if (PasswordTextRegister.Text.Trim().Length > 20)
-            {
-                Response.Write("<script>alert('请注意：密码的长度不能超过20！');</script>");
-                
-            }
-
+           
         }
 
         protected void EmailAddressText_TextChanged(object sender, EventArgs e)
         {
-
-            Regex regemail = new Regex(@"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$");
-            if (EmailAddressText.Text.Trim().Length == 0)
-            {
-                Response.Write("<script>alert('请注意：Email不能为空！');</script>");
-               
-            }
-            else if (!regemail.IsMatch(EmailAddressText.Text))
-            {
-                Response.Write("<script>alert('请注意：请填写正确的Email地址！');</script>");
-               
-
-            }
+           
         }
 
-
-       
+        protected void UserNameTextRegister_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
