@@ -11,29 +11,41 @@ namespace Training.Service
 {
     public class MovieService : IMovieService
     {
+        private readonly IMovieStore MovieStore;
+
+        public MovieService()
+        {
+            MovieStore = StoreFactory.GetMovieStore();
+        }
+     
         public int AddMovie(Movie movie)
         {
-            return StoreFactory.GetMovieStore().AddMovie(movie);
+            return MovieStore.AddMovie(movie);
         }
 
         public int UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            return MovieStore.UpdateMovie(movie);
         }
 
         public int DeleteMovie(Movie movie)
         {
-            return StoreFactory.GetMovieStore().DeleteMovie(movie);
+            return MovieStore.DeleteMovie(movie);
         }
 
         public DataTable GetMovies()
         {
-            return StoreFactory.GetMovieStore().GetMovies();
+            return MovieStore.GetMovies();
+        }
+
+        public DataTable ShowMovie(int movieId)
+        {
+            return MovieStore.ShowMovie(movieId);
         }
 
         public DataTable GetMovies(string typename, string actor)
         {
-            return StoreFactory.GetMovieStore().GetMovies(typename, actor);
+            return MovieStore.GetMovies(typename, actor);
         }
     }
 

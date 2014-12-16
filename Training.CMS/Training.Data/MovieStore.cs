@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,19 @@ namespace Training.Data
 
         public int UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            var sql = string.Format(@"UPDATE [dbo].[Movie] SET MovieTypeId=@MovieTypeId,MovieName=@MovieName,Description=@Description,Actor=@Actor,Image=@Image,UploadDate=@UploadDate,IsAudit=@IsAudit WHERE (Id=@Id)");
+            var parameters = new List<SqlParameter>
+            { 
+               new SqlParameter("@Id",movie.Id),
+               new SqlParameter("@MovieTypeId", movie.MovieTypeId),
+               new SqlParameter("@MovieName", movie.MovieName),
+               new SqlParameter("@Description", movie.Description),
+               new SqlParameter("@Actor", movie.Actor),
+               new SqlParameter("@Image", movie.Image),
+               new SqlParameter("@UploadDate", movie.UploadDate),
+               new SqlParameter("@IsAudit", movie.IsAudit)
+            };
+            return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
 
         public int DeleteMovie(Movie movie)
@@ -41,44 +54,39 @@ namespace Training.Data
             };
             return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
-
-        public System.Data.DataTable GetMovies()
+        public DataTable ShowMovie(int movieId)
         {
-            var sql = string.Format(@"SELECT * FROM [dbo].[Movie]");
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie] WHERE (Id=@Id)");
+            var parameter = new List<SqlParameter>
+            {
+                new SqlParameter("@Id",movieId),
+            };
+            return DBHelper.GetDataSet(sql, parameter.ToArray());
+        }
+        public DataTable GetMovies()
+        {
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie],[dbo].[MovieType] WHERE [dbo].[Movie].MovieTypeId=[dbo].[MovieType].Id");
             return DBHelper.GetDataSet(sql);
         }
 
-        public System.Data.DataTable GetMovies(string typename, bool istypename)
+        public DataTable GetMovies(string typename, string actor)
         {
-            if (istypename)
+            if (typename.Equals("全部"))
             {
-                var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName)");
-                var parameter = new List<SqlParameter>
-            {
-                new SqlParameter("@TypeName",typename)
-            };
-                return DBHelper.GetDataSet(sql, parameter.ToArray());
+                typename = "";
             }
             else
             {
-                var sql = string.Format(@"select * from [dbo].[Movie] where Actor = @Actor");
-                var parameter = new List<SqlParameter>
-                {
-                    new SqlParameter("@Actor",typename)
-                };
-                return DBHelper.GetDataSet(sql, parameter.ToArray());
+                typename = string.Format(" and MovieTypeId in (select Id from [dbo].[MovieType] where TypeName='{0}')", typename);
             }
-        }
 
-        public System.Data.DataTable GetMovies(string typename, string actor)
-        {
-            var sql = string.Format(@"select * from [dbo].[Movie] where MovieTypeId in (select Id from [dbo].[MovieType] where TypeName = @TypeName) and Actor = @Actor");
-            var parameter = new List<SqlParameter>
+            if (!string.IsNullOrEmpty(actor))
             {
-                new SqlParameter("@TypeName",typename),
-                new SqlParameter("@Actor",actor)
-            };
-            return DBHelper.GetDataSet(sql, parameter.ToArray());
+                actor = string.Format(" and Actor='{0}'", actor);
+            }
+
+            var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 {0}{1} order by UploadDate desc", typename, actor);
+            return DBHelper.GetDataSet(sql);
         }
     }
 }

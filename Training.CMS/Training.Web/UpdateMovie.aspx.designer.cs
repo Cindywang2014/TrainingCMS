@@ -10,7 +10,7 @@
 namespace Training.Web {
     
     
-    public partial class AddMovie {
+    public partial class UpdateMovie {
         
         /// <summary>
         /// form1 control.
@@ -49,6 +49,15 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox ActorBox;
         
         /// <summary>
+        /// Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image;
+        
+        /// <summary>
         /// ImageUpload control.
         /// </summary>
         /// <remarks>
@@ -67,12 +76,30 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox DescriptionBox;
         
         /// <summary>
-        /// UploadButton control.
+        /// PassedButten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UploadButton;
+        protected global::System.Web.UI.WebControls.RadioButton PassedButten;
+        
+        /// <summary>
+        /// FailButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton FailButton;
+        
+        /// <summary>
+        /// UpdateButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateButton;
     }
 }
