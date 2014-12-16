@@ -146,6 +146,10 @@
     <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Images\blue.jpg" />
+    <Content Include="Images\capt.jpg" />
+    <Content Include="Images\iron.jpg" />
+    <Content Include="Images\testForMovieAdd.jpg" />
     <Content Include="MovieDetails.aspx" />
     <Content Include="MovieMaintenance.aspx" />
     <Content Include="Register.aspx" />
@@ -204,7 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.Domain\Training.Domain.csproj">

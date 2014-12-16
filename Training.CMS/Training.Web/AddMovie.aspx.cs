@@ -25,8 +25,6 @@ namespace Training.Web
                 MovieTypeList.DataTextField = "TypeName";
                 MovieTypeList.DataValueField = "Id";
                 MovieTypeList.DataBind();
-                var MovieId = Request.QueryString["MovieId"];
-                LabelTest.Text = MovieId;               
             }
         }
 
@@ -48,9 +46,6 @@ namespace Training.Web
             var movieService = new MovieService();
 
             movieService.AddMovie(movie);
-            
-           
-
         }
 
     }

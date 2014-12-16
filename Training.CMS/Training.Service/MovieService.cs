@@ -38,6 +38,11 @@ namespace Training.Service
             return MovieStore.GetMovies();
         }
 
+        public DataTable ShowMovie(int movieId)
+        {
+            return MovieStore.ShowMovie(movieId);
+        }
+
         public DataTable GetMovies(string typename, string actor)
         {
             return MovieStore.GetMovies(typename, actor);

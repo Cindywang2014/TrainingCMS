@@ -29,6 +29,11 @@ namespace Training.Data
         /// <returns></returns>
         int DeleteMovie(Movie movie);
         /// <summary>
+        /// get only one movie
+        /// </summary>
+        /// <returns></returns>
+        DataTable ShowMovie(int movieId);
+        /// <summary>
         /// get all movies
         /// </summary>
         /// <returns></returns>

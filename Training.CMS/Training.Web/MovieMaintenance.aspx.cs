@@ -100,7 +100,7 @@ namespace Training.Web
                 //LabelTest.Text = "You selected " + contact + ".";
                 //Response.Redirect("AddMovie.aspx");
                 string querystr = contactId.Text;
-                Response.Redirect("AddMovie.aspx?MovieId=" + querystr);
+                Response.Redirect("UpdateMovie.aspx?MovieId=" + querystr);
             }
         }
 

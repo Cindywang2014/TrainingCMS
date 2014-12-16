@@ -30,10 +30,17 @@ namespace Training.Data
 
         public int UpdateMovie(Movie movie)
         {
-            var sql = string.Format(@"UPDATE [dbo].[Movie] SET IsAudit=1 WHERE (Id=@Id)");
+            var sql = string.Format(@"UPDATE [dbo].[Movie] SET MovieTypeId=@MovieTypeId,MovieName=@MovieName,Description=@Description,Actor=@Actor,Image=@Image,UploadDate=@UploadDate,IsAudit=@IsAudit WHERE (Id=@Id)");
             var parameters = new List<SqlParameter>
             { 
-                new SqlParameter("@Id",movie.Id),
+               new SqlParameter("@Id",movie.Id),
+               new SqlParameter("@MovieTypeId", movie.MovieTypeId),
+               new SqlParameter("@MovieName", movie.MovieName),
+               new SqlParameter("@Description", movie.Description),
+               new SqlParameter("@Actor", movie.Actor),
+               new SqlParameter("@Image", movie.Image),
+               new SqlParameter("@UploadDate", movie.UploadDate),
+               new SqlParameter("@IsAudit", movie.IsAudit)
             };
             return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
@@ -47,7 +54,15 @@ namespace Training.Data
             };
             return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
-
+        public DataTable ShowMovie(int movieId)
+        {
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie] WHERE (Id=@Id)");
+            var parameter = new List<SqlParameter>
+            {
+                new SqlParameter("@Id",movieId),
+            };
+            return DBHelper.GetDataSet(sql, parameter.ToArray());
+        }
         public DataTable GetMovies()
         {
             var sql = string.Format(@"SELECT * FROM [dbo].[Movie],[dbo].[MovieType] WHERE [dbo].[Movie].MovieTypeId=[dbo].[MovieType].Id");

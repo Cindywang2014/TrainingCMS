@@ -34,6 +34,8 @@ namespace Training.Service
         /// <returns></returns>
         DataTable GetMovies();
 
+        DataTable ShowMovie(int movieId);
+
         DataTable GetMovies(string typename,string actor);
     }
 }
