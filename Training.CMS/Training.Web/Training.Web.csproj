@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCountry.aspx" />
     <Content Include="dist\css\flat-ui.css.map" />
     <Content Include="dist\css\MasterPage.css" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.eot" />
@@ -154,6 +155,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCountry.aspx.cs">
+      <DependentUpon>AddCountry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddCountry.aspx.designer.cs">
+      <DependentUpon>AddCountry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddMovie.aspx.cs">
       <DependentUpon>AddMovie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
