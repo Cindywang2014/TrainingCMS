@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="/dist/css/MasterPage.css" rel="stylesheet" />
+    <link href="/dist/css/HomePage.css" rel="stylesheet" />
     <title>MoviesServer</title>
 </head>
 <body>
@@ -20,67 +20,17 @@
         </header>
         <section>
             <asp:ListView ID="ConsilientMovies" OnSelectedIndexChanging="ConsilientMovies_SelectedIndexChanging" runat="server">
-                <%--<AlternatingItemTemplate>
-                    <li style="">MovieName:
-                        <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("Image") %>' />
-                        <br />
-                        Description:
-                        <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                        <br />
-                        Actor:
-                        <asp:Label ID="ActorLabel" runat="server" Text='<%# Eval("Actor") %>' />
-                        <br />
-                        Image:
-                        <asp:Label ID="ImageLabel" runat="server" Text='<%# Eval("MovieName") %>' />
-                        <br />
-                    </li>
-                </AlternatingItemTemplate>--%>
-                <%--<EditItemTemplate>
-                    <li style="">MovieName:
-                        <asp:TextBox ID="MovieNameTextBox" runat="server" Text='<%# Bind("Image") %>' />
-                        <br />
-                        Description:
-                        <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                        <br />
-                        Actor:
-                        <asp:TextBox ID="ActorTextBox" runat="server" Text='<%# Bind("Actor") %>' />
-                        <br />
-                        Image:
-                        <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("MovieName") %>' />
-                        <br />
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                    </li>
-                </EditItemTemplate>--%>
+
                 <EmptyDataTemplate>
                     <br />
                     <label style="margin-left: 30px;">No data was found. Please select or input again.</label>
                 </EmptyDataTemplate>
-                <%--<InsertItemTemplate>
-                    <li style="">MovieName:
-                        <asp:TextBox ID="MovieNameTextBox" runat="server" Text='<%# Bind("Image") %>' />
-                        <br />
-                        Description:
-                        <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                        <br />
-                        Actor:
-                        <asp:TextBox ID="ActorTextBox" runat="server" Text='<%# Bind("Actor") %>' />
-                        <br />
-                        Image:
-                        <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("MovieName") %>' />
-                        <br />
-                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                    </li>
-                </InsertItemTemplate>--%>
-                <%-- <ItemSeparatorTemplate>
-                    <br />
-                </ItemSeparatorTemplate>--%>
+
                 <ItemTemplate>
-                    <div>
+                    <div style="display: table; float: left; margin: 10px;">
                         <asp:LinkButton ID="MovieLink" CommandName="Select" runat="server">
                             <div style="float: left;">
-                                <asp:Image ID="Image" runat="server" Height="130px" Width="130px" src='<%# Eval("Image") %>' />
+                                <asp:Image ID="Image" runat="server" Height="130px" Width="130px" ImageUrl='<%# Eval("Image") %>' />
                             </div>
                             <div style="margin-left: 20px; padding-top: 20px; float: left; font-size: 13px;">
                                 <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("MovieName") %>' />
@@ -97,32 +47,12 @@
                 </ItemTemplate>
 
                 <LayoutTemplate>
-                    <div id="itemPlaceholderContainer" runat="server" style="margin-left: 20px;">
+                    <div id="itemPlaceholderContainer" class="itemPlaceholderContainer" runat="server">
                         <div runat="server" itemid='<%# Eval("Id") %>' id="itemPlaceholder"></div>
+                        <div style="clear: both;"></div>
                     </div>
                 </LayoutTemplate>
 
-                <%--<SelectedItemTemplate>
-                    <div>
-                        <asp:LinkButton ID="MovieLink" OnClick="MovieLink_Click" runat="server">
-                            <div style="float: left;">
-                                <asp:Image ID="Image" runat="server" Height="100px" Width="100px" src='<%# Eval("Image") %>' />
-                            </div>
-                            <div style="margin-left: 20px; padding-top: 20px; float: left; font-size: 13px;">
-                                <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("MovieName") %>' />
-                                <br />
-                                Actor:
-                                <asp:Label ID="ActorLabel" runat="server" Text='<%# Eval("Actor") %>' />
-                                <br />
-                                Description:
-                                <br />
-                                &nbsp;&nbsp;
-                                <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                            </div>
-                            <div style="clear: both;"></div>
-                        </asp:LinkButton>
-                    </div>
-                </SelectedItemTemplate>--%>
             </asp:ListView>
         </section>
     </form>

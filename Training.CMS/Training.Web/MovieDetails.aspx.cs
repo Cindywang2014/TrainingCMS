@@ -11,12 +11,17 @@ namespace Training.Web
 {
     public partial class MovieDetails : System.Web.UI.Page
     {
+        private readonly IMovieService MovieServer = ServiceFactory.GetMovieService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            int index = new HomePage().GetListviewSelectedIndex();
-            var rowdata = new HomePage().GetListViewSource().Rows[index];
-            MovieActors.Text = rowdata.ItemArray[4].ToString();
+            var index = Convert.ToInt32(Request.QueryString["index"]);
+            var typename = Request.QueryString["typename"];
+            var actor = Request.QueryString["actor"];
+            var rowdata = MovieServer.GetMovies(typename, actor).Rows[index];
+
+            MovieName.Text = rowdata.ItemArray[2].ToString();
             MovieDecriptions.Text = rowdata.ItemArray[3].ToString();
+            MovieActors.Text = rowdata.ItemArray[4].ToString();
             MovieImage.ImageUrl = rowdata.ItemArray[5].ToString();
         }
     }

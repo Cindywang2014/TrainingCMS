@@ -11,3 +11,8 @@ header {
 #ChooseMovieType, #InputActor, #SubmitCondition {
     margin-right: 20px;
 }
+
+.itemPlaceholderContainer {
+    margin-left: 20px;
+    margin-top: 30px;
+}

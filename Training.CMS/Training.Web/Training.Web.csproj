@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dist\css\flat-ui.css.map" />
-    <Content Include="dist\css\MasterPage.css" />
+    <Content Include="dist\css\HomePage.css" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.eot" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.ttf" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.woff" />
