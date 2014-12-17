@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server" style="display:table; margin:0 auto">
-        <div>
+        <div> 
             电影名称<br />
             <asp:TextBox ID="MovieNameBox" runat="server"></asp:TextBox>
             <br />
