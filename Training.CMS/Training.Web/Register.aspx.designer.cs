@@ -148,13 +148,13 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.Label Region;
         
         /// <summary>
-        /// TextBox1 control.
+        /// RegionDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.DropDownList RegionDropDownList;
         
         /// <summary>
         /// RegisterButton control.

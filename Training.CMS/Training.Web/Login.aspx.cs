@@ -14,23 +14,20 @@ namespace Training.Web
 {
     public partial class Login : System.Web.UI.Page
     {
-       
-        protected void RegisterButtonLogin_Click(object sender, EventArgs e)
+        public bool CheckLogin()
         {
-           
-            
-        }
-
-        public bool CheckLogin() 
-        {
-            bool satisfyTwo = false;
-            if ((UserNameTextLogin.Text.Trim().Length == 0) || (PasswordTextLogin.Text.Trim().Length==0)) 
+            bool satisfyTwo = true;
+            if (string.IsNullOrWhiteSpace(UserNameTextLogin.Text.Trim()) || string.IsNullOrWhiteSpace(PasswordTextLogin.Text.Trim()))
             {
                 UserWrong.Visible = true;
                 UserWrong.Text = "请注意：密码和用户名不能为空！";
-                return satisfyTwo;
+                satisfyTwo = false;
             }
-          return   satisfyTwo = true;
+            else
+            {
+                UserWrong.Visible = false;
+            }
+            return satisfyTwo;
         }
         protected void LoginButton_Click(object sender, EventArgs e)
         {
@@ -48,6 +45,7 @@ namespace Training.Web
                 if (exist)
                 {
                     Response.Write("<script>alert('登录成功！');</script>");
+                    Response.Redirect("Index.aspx");
                 }
                 else
                 {
@@ -55,7 +53,10 @@ namespace Training.Web
                 }
             }
         }
-
+        protected void RegisterButtonLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
         protected void UserNameTextLogin_TextChanged(object sender, EventArgs e)
         {
 
@@ -64,10 +65,6 @@ namespace Training.Web
         protected void PasswordTextLogin_TextChanged(object sender, EventArgs e)
         {
 
-
         }
-
-       
-
     }
 }

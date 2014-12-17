@@ -162,6 +162,7 @@
   <ItemGroup>
     <Compile Include="AddCountry.aspx.cs">
       <DependentUpon>AddCountry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddCountry.aspx.designer.cs">
       <DependentUpon>AddCountry.aspx</DependentUpon>
@@ -175,12 +176,14 @@
     </Compile>
     <Compile Include="AddMovieType.aspx.cs">
       <DependentUpon>AddMovieType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddMovieType.aspx.designer.cs">
       <DependentUpon>AddMovieType.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddRegion.aspx.cs">
       <DependentUpon>AddRegion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddRegion.aspx.designer.cs">
       <DependentUpon>AddRegion.aspx</DependentUpon>

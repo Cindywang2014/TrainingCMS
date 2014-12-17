@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="height: 275px">
+<body style="height: 313px">
     <form id="form1" runat="server">
     <div style="text-align:center">
     <asp:Label ID="UserNameRegister" runat="server" Text="用户名："></asp:Label>
@@ -34,14 +34,14 @@
         <br />
         <br />
         <asp:Label ID="Region" runat="server" Text="Region:"></asp:Label>
-        <%--<asp:DropDownList ID="RegionDropDownList" runat="server"  >
-        </asp:DropDownList>--%>
-       
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="RegionDropDownList" runat="server"  >
+        </asp:DropDownList>
        
         <br />
         <br />
         <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="提交注册信息" />
+        <br />
+        <br />
     </div>
         
     </form>
