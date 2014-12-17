@@ -47,12 +47,12 @@ namespace Training.Web
             ConsilientMoviesDatabound();
         }
 
-        protected void SubmitCondition_Click(object sender, EventArgs e)
+        protected void ChooseMovieType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowQueryResult();
         }
 
-        protected void ChooseMovieType_SelectedIndexChanged(object sender, EventArgs e)
+        protected void SubmitCondition_Click(object sender, EventArgs e)
         {
             ShowQueryResult();
         }
@@ -60,11 +60,7 @@ namespace Training.Web
         protected void ConsilientMovies_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
         {
             ListviewSelectedIndex = e.NewSelectedIndex;
-            ListViewItem demo = ConsilientMovies.Items[0];
-            //demo.
-            //var a = ConsilientMovies.DataKeys[e.NewSelectedIndex].Values;
-            //ConsilientMovies.Items[ListviewSelectedIndex].FindControl("ControlSource");
-            Response.Redirect("MovieDetails.aspx?typename=" + MovieType + "&actor" + Actor + "&index=" + ListviewSelectedIndex);
+            Response.Redirect("MovieDetails.aspx?typename=" + MovieType + "&actor=" + Actor + "&index=" + ListviewSelectedIndex);
         }
     }
 }
