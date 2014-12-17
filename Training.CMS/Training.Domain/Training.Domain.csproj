@@ -42,6 +42,7 @@
     <Compile Include="Country.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieType.cs" />
+    <Compile Include="Region.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

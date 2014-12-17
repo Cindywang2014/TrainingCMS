@@ -11,32 +11,38 @@ namespace Training.Service
 {
    public  class CountryService:ICountryService
     {
-       private readonly ICountryStore CountryStore;
+       //private readonly ICountryStore CountryStore;
 
-       public CountryService()
-        {
-            CountryStore = StoreFactory.GetCountryStore();
-        }
+       //public CountryService()
+       // {
+       //     CountryStore = StoreFactory.GetCountryStore();
+       // }
+       public int ExperimentalCountry(Country country)
+       {
+           return StoreFactory.GetCountryStore().ExperimentalCountry(country);
+       }
 
         public int AddCountry(Country country)
         {
-            return CountryStore.AddCountry(country);
+           return StoreFactory.GetCountryStore().AddCountry(country);
         }
 
         public int UpdateCountry(Country country)
         {
-            throw new System.NotImplementedException();
+            return StoreFactory.GetCountryStore().UpdateCountry(country);
         }
 
-        public int DeleteCountry(Country Country)
+        public int DeleteCountry(Country country)
         {
-            throw new System.NotImplementedException();
+            return StoreFactory.GetCountryStore().DeleteCountry(country);
         }
 
         public DataTable GetCountries()
         {
-
-            return new CountryStore().GetCountries();
+            return StoreFactory.GetCountryStore().GetCountries();
+           // return new CountryStore().GetCountries();
         }
+
+        public Country country { get; set; }
     }
 }

@@ -8,8 +8,9 @@ using Training.Domain;
 
 namespace Training.Service
 {
-    interface ICountryService
+   public interface ICountryService
     {
+        int ExperimentalCountry(Country country);
         /// <summary>
         /// add a country
         /// </summary>

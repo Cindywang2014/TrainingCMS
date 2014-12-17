@@ -5,6 +5,7 @@ namespace Training.Service
 {
     public interface IMovieTypeService
     {
+        int ExperimentalType(MovieType movietype);
         int AddMovieType(MovieType movietype);
 
         int UpdateMovieType(MovieType movietype);

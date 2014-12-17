@@ -16,5 +16,9 @@
         {
             return new MovieTypeService();
         }
+        public static ICountryService GetCountryService()
+        {
+            return new CountryService();
+        }
     }
 }

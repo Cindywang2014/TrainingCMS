@@ -45,10 +45,12 @@
     <Compile Include="ICountryStore.cs" />
     <Compile Include="IMovieStore.cs" />
     <Compile Include="IMovieTypeStore.cs" />
+    <Compile Include="IRegionStore.cs" />
     <Compile Include="IUserStore.cs" />
     <Compile Include="MovieStore.cs" />
     <Compile Include="MovieTypeStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionStore.cs" />
     <Compile Include="StoreFactory.cs" />
     <Compile Include="UserStore.cs" />
   </ItemGroup>

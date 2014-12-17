@@ -10,6 +10,7 @@ namespace Training.Data
 {
      public interface ICountryStore
     {
+         int ExperimentalCountry(Country country);
         /// <summary>
         /// add a country
         /// </summary>

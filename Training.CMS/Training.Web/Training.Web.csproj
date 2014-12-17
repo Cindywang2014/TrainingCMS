@@ -57,6 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCountry.aspx" />
+    <Content Include="AddMovieType.aspx" />
+    <Content Include="AddRegion.aspx" />
     <Content Include="dist\css\flat-ui.css.map" />
     <Content Include="dist\css\HomePage.css" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.eot" />
@@ -157,12 +160,30 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCountry.aspx.cs">
+      <DependentUpon>AddCountry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddCountry.aspx.designer.cs">
+      <DependentUpon>AddCountry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddMovie.aspx.cs">
       <DependentUpon>AddMovie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddMovie.aspx.designer.cs">
       <DependentUpon>AddMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMovieType.aspx.cs">
+      <DependentUpon>AddMovieType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMovieType.aspx.designer.cs">
+      <DependentUpon>AddMovieType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddRegion.aspx.cs">
+      <DependentUpon>AddRegion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddRegion.aspx.designer.cs">
+      <DependentUpon>AddRegion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

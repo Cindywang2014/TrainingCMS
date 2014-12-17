@@ -21,5 +21,9 @@
         {
             return new MovieTypeStore();
         }
+        public static IRegionStore GetRegionStore()
+        {
+            return new RegionStore();
+        }
     }
 }

@@ -6,25 +6,32 @@ namespace Training.Service
 {
     public class MovieTypeService : IMovieTypeService
     {
-        private readonly IMovieTypeStore MovieTypeStore;
-
+       // private readonly IMovieTypeStore MovieTypeStore;
+        
         public MovieTypeService()
         {
-            MovieTypeStore = StoreFactory.GetMovieTypeStore();
+           // MovieTypeStore = StoreFactory.GetMovieTypeStore();
+        }
+        public int ExperimentalType(MovieType movietype)
+        {
+            return StoreFactory.GetMovieTypeStore().ExperimentalType(movietype);
         }
         public int AddMovieType(MovieType movietype)
         {
 
-            return MovieTypeStore.AddMovieType(movietype);
+            return StoreFactory.GetMovieTypeStore().AddMovieType(movietype);
+          
         }
         public int UpdateMovieType(MovieType movietype)
         {
-            throw new System.NotImplementedException();
+            return StoreFactory.GetMovieTypeStore().UpdateMovieType(movietype);
+            
         }
 
         public int DeteleMovieType(MovieType movietype)
         {
-            throw new System.NotImplementedException();
+            return StoreFactory.GetMovieTypeStore().DeteleMovieType(movietype);
+           
         }
 
         public DataTable GetMovieTypes()
