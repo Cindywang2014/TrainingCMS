@@ -32,9 +32,13 @@ namespace Training.Service
         /// get all movies
         /// </summary>
         /// <returns></returns>
+
+        int IsAudit(Movie movie);
         DataTable GetMovies();
 
         DataTable ShowMovie(int movieId);
+
+        DataTable ShowMovie(string movieName);
 
         DataTable GetMovies(string typename,string actor);
     }

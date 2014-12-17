@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddCountry.aspx" />
+    <Content Include="AddMovie.aspx" />
     <Content Include="AddMovieType.aspx" />
     <Content Include="AddRegion.aspx" />
     <Content Include="dist\css\flat-ui.css.map" />
@@ -93,7 +94,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddMovie.aspx" />
     <Content Include="dist\css\flat-ui.css" />
     <Content Include="dist\css\flat-ui.min.css" />
     <Content Include="dist\css\vendor\bootstrap.min.css" />

@@ -39,30 +39,6 @@ namespace Training.Web
             DataSourceBand();
         }
 
-        protected void MovieGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            string movieId = MovieGridView.DataKeys[e.RowIndex].Value.ToString();
-            var movie = new Movie()
-            {
-                Id = Convert.ToInt32(movieId)
-            };
-            var movieServie = new MovieService();
-            movieServie.UpdateMovie(movie);
-            MovieGridView.EditIndex = -1;
-            DataSourceBand();
-        }
-
-        protected void MovieGridView_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            MovieGridView.EditIndex = e.NewEditIndex;
-            DataSourceBand();
-        }
-
-        protected void MovieGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            MovieGridView.EditIndex = -1;
-            DataSourceBand();
-        }
 
         protected void MovieGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -95,13 +71,53 @@ namespace Training.Web
                 // cell in the GridView control.
                 GridViewRow selectedRow = MovieGridView.Rows[index];
                 TableCell contactId = selectedRow.Cells[0];
-                //string contact = contactId.Text;
-                //// Display the selected author.
-                //LabelTest.Text = "You selected " + contact + ".";
-                //Response.Redirect("AddMovie.aspx");
                 string querystr = contactId.Text;
                 Response.Redirect("UpdateMovie.aspx?MovieId=" + querystr);
             }
+            if (e.CommandName == "Audit")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow selectedRow = MovieGridView.Rows[index];
+                //another way to get value to if()
+                CheckBox cb = (CheckBox)MovieGridView.Rows[index].Cells[7].Controls[0];  
+                if (!cb.Checked)
+                {
+                    TableCell contactId = selectedRow.Cells[0];
+                    string movieId = contactId.Text;
+                    var movie = new Movie()
+                    {
+                        Id = Convert.ToInt32(movieId)
+                    };
+                    var movieServie = new MovieService();
+                    movieServie.IsAudit(movie);                  
+                    DataSourceBand();
+                    Response.Write("<script>alert('审核通过')</script>");
+                }
+                else 
+                {
+                    Response.Write("<script>alert('之前通过审核')</script>");
+                }
+               
+            }
+        }
+
+        protected void AddButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddMovie.aspx");
+        }
+
+        protected void QueryMovie_Click(object sender, EventArgs e)
+        {
+            string movieName=MovieNameText.Text;
+            var movieService = new MovieService();
+            MovieGridView.DataSource = movieService.ShowMovie(movieName);
+            MovieGridView.DataKeyNames = new string[] { "Id" };
+            MovieGridView.DataBind(); 
+        }
+
+        protected void AllMovies_Click(object sender, EventArgs e)
+        {
+            DataSourceBand();
         }
 
       

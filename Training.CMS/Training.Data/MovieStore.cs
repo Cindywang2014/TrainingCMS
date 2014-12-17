@@ -30,7 +30,7 @@ namespace Training.Data
 
         public int UpdateMovie(Movie movie)
         {
-            var sql = string.Format(@"UPDATE [dbo].[Movie] SET MovieTypeId=@MovieTypeId,MovieName=@MovieName,Description=@Description,Actor=@Actor,Image=@Image,UploadDate=@UploadDate,IsAudit=@IsAudit WHERE (Id=@Id)");
+            var sql = string.Format(@"UPDATE [dbo].[Movie] SET MovieTypeId=@MovieTypeId,MovieName=@MovieName,Description=@Description,Actor=@Actor,Image=@Image,UploadDate=@UploadDate,IsAudit=@IsAudit WHERE Id=@Id");
             var parameters = new List<SqlParameter>
             { 
                new SqlParameter("@Id",movie.Id),
@@ -41,6 +41,16 @@ namespace Training.Data
                new SqlParameter("@Image", movie.Image),
                new SqlParameter("@UploadDate", movie.UploadDate),
                new SqlParameter("@IsAudit", movie.IsAudit)
+            };
+            return DBHelper.ExecuteCommand(sql, parameters.ToArray());
+        }
+
+        public int IsAudit(Movie movie)
+        {
+            var sql = string.Format(@"UPDATE [dbo].[Movie] SET IsAudit=1 WHERE Id=@Id");
+            var parameters = new List<SqlParameter>
+            { 
+               new SqlParameter("@Id",movie.Id),
             };
             return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
@@ -56,12 +66,22 @@ namespace Training.Data
         }
         public DataTable ShowMovie(int movieId)
         {
-            var sql = string.Format(@"SELECT * FROM [dbo].[Movie] WHERE (Id=@Id)");
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie] WHERE Id=@Id");
             var parameter = new List<SqlParameter>
             {
                 new SqlParameter("@Id",movieId),
             };
             return DBHelper.GetDataSet(sql, parameter.ToArray());
+        }
+        public DataTable ShowMovie(string movieName)
+        {
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie],[dbo].[MovieType] WHERE [dbo].[Movie].MovieTypeId=[dbo].[MovieType].Id and  MovieName LIKE '%" + movieName + "%'");
+            //var parameter = new List<SqlParameter>
+            //{
+            //    new SqlParameter("@MovieName",movieName),
+            //};
+            //
+            return DBHelper.GetDataSet(sql);
         }
         public DataTable GetMovies()
         {
@@ -82,7 +102,7 @@ namespace Training.Data
 
             if (!string.IsNullOrEmpty(actor))
             {
-                actor = string.Format(" and (Actor like '%{0}%' or MovieName like '%{1}%')", actor, actor);
+                actor = string.Format(" and Actor='{0}'", actor);
             }
 
             var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 {0}{1} order by UploadDate desc", typename, actor);

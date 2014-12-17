@@ -29,10 +29,22 @@ namespace Training.Data
         /// <returns></returns>
         int DeleteMovie(Movie movie);
         /// <summary>
+        /// update is audit true
+        /// </summary>
+        /// <param name="movie"></param>
+        /// <returns></returns>
+        int IsAudit(Movie movie);
+        /// <summary>
         /// get only one movie
         /// </summary>
         /// <returns></returns>
         DataTable ShowMovie(int movieId);
+        /// <summary>
+        /// get movies by name
+        /// </summary>
+        /// <param name="movieName"></param>
+        /// <returns></returns>
+        DataTable ShowMovie(string movieName);
         /// <summary>
         /// get all movies
         /// </summary>

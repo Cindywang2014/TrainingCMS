@@ -33,6 +33,10 @@ namespace Training.Service
             return MovieStore.DeleteMovie(movie);
         }
 
+        public int IsAudit(Movie movie) 
+        {
+            return MovieStore.IsAudit(movie);
+        }
         public DataTable GetMovies()
         {
             return MovieStore.GetMovies();
@@ -41,6 +45,11 @@ namespace Training.Service
         public DataTable ShowMovie(int movieId)
         {
             return MovieStore.ShowMovie(movieId);
+        }
+
+        public DataTable ShowMovie(string movieName)
+        {
+            return MovieStore.ShowMovie(movieName);
         }
 
         public DataTable GetMovies(string typename, string actor)
