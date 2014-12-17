@@ -11,7 +11,7 @@
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server" style="display:table; margin:0 auto">
+    <form id="form1" runat="server" style="display:table; margin:20px auto">
         <div> 
             电影名称<br />
             <asp:TextBox ID="MovieNameBox" runat="server"></asp:TextBox>
@@ -27,7 +27,7 @@
             <br />
             <asp:FileUpload ID="ImageUpload" runat="server" Width="219px" />
             描述<br />
-            <asp:TextBox ID="DescriptionBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="DescriptionBox" runat="server"  Height="100px" TextMode="MultiLine" Width="300px"></asp:TextBox>
             <br />
             审核<br />
             <asp:RadioButton ID="PassedButten" runat="server" Font-Names="Arial Black" ForeColor="#33CC33" GroupName="IsAudit" Text="Passed" />

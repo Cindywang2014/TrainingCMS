@@ -5,11 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Maintenance of the movie</title>
+     <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="dist/css/flat-ui.css" rel="stylesheet" />
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="display:table; margin:20px auto">
         <div>
-
             <asp:GridView ID="MovieGridView" runat="server" AutoGenerateColumns="False"  Caption="Maintenance of the movie" 
                  OnRowCommand="MovieGridView_RowCommand"
                  OnRowDeleting="MovieGridView_RowDeleting"
@@ -36,8 +39,6 @@
                     <asp:ButtonField ButtonType="Link" Text="UpdateButton" CommandName="UpdateButton" />
                 </Columns>
             </asp:GridView>
-            <br />
-            <asp:Label ID="LabelTest" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
     </body>

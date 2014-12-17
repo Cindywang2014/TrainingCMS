@@ -8,16 +8,11 @@
     <link href="dist/css/flat-ui.css" rel="stylesheet" />
     <script src="dist/js/vendor/jquery.min.js"></script>
     <script src="dist/js/flat-ui.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(':radio').radiocheck('disable');
-        });
-</script>
 </head>
 <body>
-    <form id="form1" runat="server" style="display:table; margin:0 auto">
+    <form id="form1" runat="server" style="display:table; margin:20px auto">
         电影名称<br />
-        <asp:TextBox ID="MovieNameBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="MovieNameBox" runat="server" ></asp:TextBox>
         <br />
         电影类别<br />
         <asp:DropDownList ID="MovieTypeList" runat="server" class="btn btn-default dropdown-toggle"></asp:DropDownList>
@@ -26,9 +21,11 @@
         <asp:TextBox ID="ActorBox" runat="server"></asp:TextBox>
         <br />
         图片<br />
+        <asp:Image ID="Image" runat="server" Height="100px" Width="150px"/>
+        <br />
         <asp:FileUpload ID="ImageUpload" runat="server" />
         描述<br />
-        <asp:TextBox ID="DescriptionBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="DescriptionBox" runat="server" Height="100px" TextMode="MultiLine" Width="300px"></asp:TextBox>
         <br />
         <asp:Button ID="UploadButton" runat="server" OnClick="UploadButton_Click" Text="提交" class="btn btn-success"/>
     </form>

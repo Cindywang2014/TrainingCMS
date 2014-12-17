@@ -21,7 +21,6 @@ namespace Training.Web
                 MovieTypeList.DataValueField = "Id";
                 MovieTypeList.DataBind();
                 ShowData();
-
             }
         }
         protected void ShowData()
@@ -43,6 +42,8 @@ namespace Training.Web
         }
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
+            if (EmptyCheck())
+            { 
             string name = ImageUpload.FileName;
             string ipath = Server.MapPath(@"~\Images\") + name;
             ImageUpload.SaveAs(ipath);
@@ -59,8 +60,35 @@ namespace Training.Web
                 IsAudit = PassedButten.Checked,
             };
             var movieService = new MovieService();
-
             movieService.UpdateMovie(movie);
+            Response.Redirect("MovieMaintenance.aspx");
+            }
+        }
+
+        protected bool EmptyCheck()
+        {
+            bool result = false;
+            if (String.IsNullOrWhiteSpace(MovieNameBox.Text))
+            {
+                Response.Write("<script>alert('请输入名字')</script>");
+                return result;
+            }
+            else if (String.IsNullOrWhiteSpace(ActorBox.Text))
+            {
+                Response.Write("<script>alert('请输入主演')</script>");
+                return result;
+            }
+            else if (String.IsNullOrWhiteSpace(ImageUpload.FileName))
+            {
+                Response.Write("<script>alert('请输入图片')</script>");
+                return result;
+            }
+            else if (String.IsNullOrWhiteSpace(DescriptionBox.Text))
+            {
+                Response.Write("<script>alert('请输入详细信息')</script>");
+                return result;
+            }
+            return result = true;
         }
     }
 }
