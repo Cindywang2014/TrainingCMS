@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div style="display: table; margin: 20px auto 0; max-width: 60%;">
-            MovieName:&nbsp
+            MovieName:&nbsp 
             <asp:Label ID="MovieName" runat="server" Text="MovieName"></asp:Label>
             <br />
             <br />
