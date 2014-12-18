@@ -24,7 +24,7 @@ namespace Training.Web
             var movieService = new MovieService();
             MovieGridView.DataSource = movieService.GetMovies();
             MovieGridView.DataKeyNames = new string[] { "Id" };
-            MovieGridView.DataBind(); 
+            MovieGridView.DataBind();
         }
 
         protected void MovieGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -46,7 +46,7 @@ namespace Training.Web
             {
 
                 e.Row.Attributes.Add("onmouseover", "currentcolor=this.style.backgroundColor;this.style.backgroundColor='#00FFFF',this.style.fontWeight='';");
-                
+
                 e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=currentcolor,this.style.fontWeight='';");
             }
         }
@@ -79,7 +79,7 @@ namespace Training.Web
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow selectedRow = MovieGridView.Rows[index];
                 //another way to get value to if()
-                CheckBox cb = (CheckBox)MovieGridView.Rows[index].Cells[7].Controls[0];  
+                CheckBox cb = (CheckBox)MovieGridView.Rows[index].Cells[7].Controls[0];
                 if (!cb.Checked)
                 {
                     TableCell contactId = selectedRow.Cells[0];
@@ -89,15 +89,15 @@ namespace Training.Web
                         Id = Convert.ToInt32(movieId)
                     };
                     var movieServie = new MovieService();
-                    movieServie.IsAudit(movie);                  
+                    movieServie.IsAudit(movie);
                     DataSourceBand();
                     Response.Write("<script>alert('审核通过')</script>");
                 }
-                else 
+                else
                 {
                     Response.Write("<script>alert('之前通过审核')</script>");
                 }
-               
+
             }
         }
 
@@ -108,19 +108,16 @@ namespace Training.Web
 
         protected void QueryMovie_Click(object sender, EventArgs e)
         {
-            string movieName=MovieNameText.Text;
+            string movieName = MovieNameText.Text;
             var movieService = new MovieService();
             MovieGridView.DataSource = movieService.ShowMovie(movieName);
             MovieGridView.DataKeyNames = new string[] { "Id" };
-            MovieGridView.DataBind(); 
+            MovieGridView.DataBind();
         }
 
         protected void AllMovies_Click(object sender, EventArgs e)
         {
             DataSourceBand();
         }
-
-      
-
     }
 }

@@ -62,7 +62,7 @@
     <Content Include="AddMovieType.aspx" />
     <Content Include="AddRegion.aspx" />
     <Content Include="dist\css\flat-ui.css.map" />
-    <Content Include="dist\css\HomePage.css" />
+    <Content Include="Css\HomePage.css" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.eot" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.ttf" />
     <Content Include="dist\fonts\glyphicons\flat-ui-icons-regular.woff" />
@@ -149,6 +149,12 @@
     <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Images\black.jpg" />
+    <Content Include="Images\blue.jpg" />
+    <Content Include="Images\capt.jpg" />
+    <Content Include="Images\background.jpg" />
+    <Content Include="Images\iron.jpg" />
+    <Content Include="Images\testForMovieAdd.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MovieDetails.aspx" />
@@ -244,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.Domain\Training.Domain.csproj">

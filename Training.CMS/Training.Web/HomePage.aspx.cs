@@ -59,7 +59,11 @@ namespace Training.Web
 
         protected void ConsilientMovies_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
         {
+            //var demo = ConsilientMovies.Controls[1];
             ListviewSelectedIndex = e.NewSelectedIndex;
+            //List<WebControl> label = (List<WebControl>)ConsilientMovies.Items;
+            //var demo = (Label)label[0];
+            //string id = demo.Text;
             Response.Redirect("MovieDetails.aspx?typename=" + MovieType + "&actor=" + Actor + "&index=" + ListviewSelectedIndex);
         }
     }
