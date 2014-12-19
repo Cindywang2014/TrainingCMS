@@ -157,6 +157,7 @@
     <Content Include="Images\background.jpg" />
     <Content Include="Images\country.jpg" />
     <Content Include="Images\iron.jpg" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\movie.jpg" />
     <Content Include="Images\movietype.jpg" />
     <Content Include="Images\testForMovieAdd.jpg" />

@@ -13,12 +13,16 @@
     <form runat="server">
         <header>
             <div class="headertop">
-                <label>Choose MovieType:</label>
-                <asp:DropDownList ID="ChooseMovieType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseMovieType_SelectedIndexChanged" AppendDataBoundItems="True">
-                    <asp:ListItem>全部</asp:ListItem>
-                </asp:DropDownList>
-                <asp:TextBox ID="InputActor" Text="Input the name of actor or movie.." runat="server"></asp:TextBox>
-                <asp:Button ID="SubmitCondition" runat="server" Text="Search" OnClick="SubmitCondition_Click" />
+                <div style="float: left;">
+                    <img style="display: inline;" src="/Images/Logo.png" />
+                </div>
+                <div style="float: left; width: 700px; line-height: 47px;">
+                    <label>Choose MovieType:</label>
+                    <asp:DropDownList ID="ChooseMovieType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseMovieType_SelectedIndexChanged" AppendDataBoundItems="True">
+                        <asp:ListItem>全部</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:TextBox ID="InputActor" Text="Input the name of actor or movie.." runat="server"></asp:TextBox><asp:Button ID="SubmitCondition" runat="server" Text="Search" OnClick="SubmitCondition_Click" />
+                </div>
             </div>
 
             <nav>
@@ -38,7 +42,7 @@
                         <div runat="server" id="itemPlaceholder"></div>
                         <div class="reset"></div>
                     </div>
-                    <div style="margin: 0 auto; display: table;">
+                    <div class="datapagecontrol">
                         <asp:DataPager ID="DataPager" PageSize="9" runat="server">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Link" ButtonCssClass="datapage" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -58,7 +62,6 @@
                                 <asp:Image ID="Image" runat="server" Height="130px" Width="130px" ImageUrl='<%# Eval("Image") %>' />
                             </div>
                             <div class="itemright">
-                                <asp:Label ID="Id" runat="server" Text='<%# Eval("Id") %>' /><br />
                                 <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("MovieName") %>' />
                                 <br />
                                 Actor:
