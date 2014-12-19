@@ -24,7 +24,7 @@ namespace Training.Web
         protected void BtnAddMovieType_Click(object sender, EventArgs e)
         {
             var movieType = new MovieType();
-            movieType.TypeName = MovieTypeBox.Text;
+            movieType.TypeName = MovieTypeBox.Text.ToString().Trim();
 
             var movieTypeService = new MovieTypeService();
             int count = movieTypeService.ExperimentalType(movieType);
@@ -42,7 +42,7 @@ namespace Training.Web
         {
           
             var movieTypeService = new MovieTypeService();
-            GvShowMovieType.DataKeyNames = new string[] { "Id" };//讲数据库中的逐渐字段放入GridView控件的DataKeyNames属性中
+            GvShowMovieType.DataKeyNames = new string[] { "Id" };
             GvShowMovieType.DataSource = movieTypeService.GetMovieTypes();
             GvShowMovieType.DataBind();
         }

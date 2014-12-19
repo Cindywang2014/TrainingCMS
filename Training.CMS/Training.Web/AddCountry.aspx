@@ -15,8 +15,7 @@
             }
     </style>
    <div>
-    输入国家名：<asp:TextBox ID="CountryNamebox" runat="server"></asp:TextBox>
-       
+    输入国家名：<asp:TextBox ID="CountryNamebox" runat="server"></asp:TextBox>      
         <asp:Button ID="BtnAddCountry" OnClick="BtnAddCountry_Click" runat="server" Text="添加" />
         <asp:GridView ID="GvShowCountry" AutoGenerateColumns="false"
              OnPageIndexChanging="GvShowCountry_PageIndexChanging"

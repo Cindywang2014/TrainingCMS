@@ -111,7 +111,6 @@ namespace Training.Data
             {
                 actor = string.Format(" and Actor='{0}'", actor);
             }
-
             var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 {0}{1} order by UploadDate desc", typename, actor);
             return DBHelper.GetDataSet(sql);
         }

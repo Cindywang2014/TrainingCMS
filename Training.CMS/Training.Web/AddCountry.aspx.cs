@@ -33,10 +33,10 @@ namespace Training.Web
         {
 
             var country = new Country();
-            country.CountryName = CountryNamebox.Text;
+            country.CountryName = CountryNamebox.Text.ToString().Trim();
             var countryService = new CountryService();
             int count = countryService.ExperimentalCountry(country);
-            if (country.CountryName == "")
+            if (String.IsNullOrWhiteSpace(country.CountryName))            
             {
                 Response.Write("<script>alert('还啥都没写呢')</script>");
 

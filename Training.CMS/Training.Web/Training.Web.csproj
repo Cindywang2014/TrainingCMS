@@ -150,6 +150,7 @@
     <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="Images\black.jpg" />
     <Content Include="Images\blue.jpg" />
     <Content Include="Images\capt.jpg" />

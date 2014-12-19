@@ -45,19 +45,27 @@ namespace Training.Web
         {
               
             var region = new Region();        
-            region.RegionName = RegionNamebox.Text; 
+            region.RegionName = RegionNamebox.Text.ToString().Trim(); 
             var regionService = new RegionService();
             int count = regionService.ExperimentalRegion(region);
            // if(DDLCountry.Text=="")
                 if (DDLCountry.Text == "-请选择-")
               {  
-                  Response.Write("<script>alert('请选择地区名')</script>");
+                  Response.Write("<script>alert('请选择国家')</script>");
               }
               else if(count<=0)
               { 
                 region.CountryId = Convert.ToInt32(DDLCountry.SelectedValue);//get Id value
-                regionService.AddRegion(region);
-                BindCountry();
+                if (!string.IsNullOrWhiteSpace(region.RegionName))
+                {
+                    regionService.AddRegion(region);
+                    BindCountry();
+                 }
+                else
+                {
+                    Response.Write("<script>alert('请填写地区')</script>");
+                }
+                   
               }           
               else
               {
