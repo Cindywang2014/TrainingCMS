@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="Training.Web.HomePage" %>
 
-<%--<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>--%>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,13 +30,20 @@
                 <a href="#">Variety</a>
             </nav>
         </header>
-        <section>
-            <asp:ListView ID="ConsilientMovies" OnSelectedIndexChanging="ConsilientMovies_SelectedIndexChanging" runat="server">
 
+        <section>
+            <asp:ListView ID="ConsilientMovies" OnPagePropertiesChanged="ConsilientMovies_PagePropertiesChanged" OnSelectedIndexChanging="ConsilientMovies_SelectedIndexChanging" runat="server">
                 <LayoutTemplate>
                     <div id="itemPlaceholderContainer" class="itemPlaceholderContainer" runat="server">
                         <div runat="server" id="itemPlaceholder"></div>
                         <div class="reset"></div>
+                    </div>
+                    <div style="margin: 0 auto; display: table;">
+                        <asp:DataPager ID="DataPager" PageSize="9" runat="server">
+                            <Fields>
+                                <asp:NextPreviousPagerField ButtonType="Link" ButtonCssClass="datapage" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                            </Fields>
+                        </asp:DataPager>
                     </div>
                 </LayoutTemplate>
 
@@ -47,12 +52,13 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <div style="display: table; float: left; margin: 10px;">
-                        <asp:LinkButton ID="MovieLink" CommandName="Select" runat="server">
-                            <div style="float: left;">
+                    <div class="listviewitems">
+                        <asp:LinkButton ID="MovieLink" ForeColor="Black" CommandName="Select" runat="server">
+                            <div class="itemleft">
                                 <asp:Image ID="Image" runat="server" Height="130px" Width="130px" ImageUrl='<%# Eval("Image") %>' />
                             </div>
-                            <div style="margin-left: 20px; padding-top: 5px; max-width: 195px; float: left; font-size: 13px;">
+                            <div class="itemright">
+                                <asp:Label ID="Id" runat="server" Text='<%# Eval("Id") %>' /><br />
                                 <asp:Label ID="MovieNameLabel" runat="server" Text='<%# Eval("MovieName") %>' />
                                 <br />
                                 Actor:
@@ -65,19 +71,11 @@
                         </asp:LinkButton>
                     </div>
                 </ItemTemplate>
-
-                <%--                <webdiyer:AspNetPager ID="AspNetPagerAskAnswer" runat="server"
-                    AlwaysShow="True" FirstPageText="首页" LastPageText="尾页" NextPageText="下一页"
-                    onpagechanged="AspNetPagerAskAnswer_PageChanged" PrevPageText="上一页"
-                    PageSize="15">
-                </webdiyer:AspNetPager>--%>
             </asp:ListView>
-
-
-
         </section>
     </form>
 </body>
+
 <script>
     $(document).ready(function () {
         $("#InputActor").focus(function () {
@@ -94,4 +92,5 @@
         });
     });
 </script>
+
 </html>

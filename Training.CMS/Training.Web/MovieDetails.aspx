@@ -28,27 +28,42 @@
             height: inherit;
             background-color: white;
         }
+
+        #MovieImage {
+            float: left;
+        }
+
+        section label {
+            font-weight: 900;
+        }
+
+        .actor {
+            float: left;
+            margin: 20px 0 0 30px;
+        }
     </style>
 </head>
 <body>
     <form runat="server">
 
         <header>
+
         </header>
 
         <section>
-            MovieName:&nbsp 
+            <label>MovieName:</label>
             <asp:Label ID="MovieName" runat="server" Text="MovieName"></asp:Label>
             <br />
             <br />
             <asp:Image ID="MovieImage" Width="280" Height="280" runat="server" />
+            <div class="actor">
+                <label>Actor:</label>
+                <asp:Label ID="MovieActors" runat="server"></asp:Label>
+            </div>
+            <div style="clear: both;"></div>
             <br />
             <br />
-            Actor:&nbsp
-            <asp:Label ID="MovieActors" runat="server"></asp:Label>
-            <br />
-            <br />
-            Description:
+            <label>Description:</label>
             <br />
             &nbsp&nbsp
             <asp:Label ID="MovieDecriptions" runat="server"></asp:Label>
