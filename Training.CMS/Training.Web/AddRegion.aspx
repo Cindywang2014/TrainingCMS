@@ -33,6 +33,7 @@
             </Columns>
             
         </asp:GridView>
+        <asp:LinkButton ID="ToIndex" runat="server" OnClick="ToIndex_Click">ToIndex</asp:LinkButton>
     </div>
     </form>
 </body>

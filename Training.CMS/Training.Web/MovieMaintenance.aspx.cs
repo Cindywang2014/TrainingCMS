@@ -108,16 +108,47 @@ namespace Training.Web
 
         protected void QueryMovie_Click(object sender, EventArgs e)
         {
-            string movieName = MovieNameText.Text;
-            var movieService = new MovieService();
-            MovieGridView.DataSource = movieService.ShowMovie(movieName);
-            MovieGridView.DataKeyNames = new string[] { "Id" };
-            MovieGridView.DataBind();
+            if (EmptyCheck())
+            {
+                string movieName = MovieNameText.Text;
+                var movieService = new MovieService();
+                MovieGridView.DataSource = movieService.ShowMovie(movieName);
+                MovieGridView.DataKeyNames = new string[] { "Id" };
+                MovieGridView.DataBind();
+            }
         }
 
         protected void AllMovies_Click(object sender, EventArgs e)
         {
             DataSourceBand();
+        }
+        protected bool EmptyCheck()
+        {
+            bool result = false;
+            if (String.IsNullOrWhiteSpace(MovieNameText.Text))
+            {
+                Response.Write("<script>alert('请输入名字')</script>");
+                return result;
+            }
+            return result = true;
+        }
+
+        protected void ToIndex_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
+        }
+
+        protected void UnauditedMovie()
+        {
+            var movieService = new MovieService();
+            MovieGridView.DataSource = movieService.UnauditedMovie();
+            MovieGridView.DataKeyNames = new string[] { "Id" };
+            MovieGridView.DataBind();
+        }
+
+        protected void UnauditedMovie_Click(object sender, EventArgs e)
+        {
+            UnauditedMovie();
         }
     }
 }

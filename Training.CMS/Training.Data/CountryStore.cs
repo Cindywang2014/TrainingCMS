@@ -10,16 +10,6 @@ namespace Training.Data
 {
     public class CountryStore : ICountryStore
     {
-
-        //public int A(Region region)
-        //{
-        //    var sql = string.Format(@"select count(*) from Region where CountryId=(@CountryId)");
-        //    var parametsers = new List<SqlParameter>
-        //    {
-        //        new SqlParameter("@CountryId",region.CountryId)
-        //    };
-        //    return DBHelper.GetScalar(sql, parametsers.ToArray());
-        //}
         public int ExperimentalCountry(Country country)
         {
 
@@ -32,7 +22,6 @@ namespace Training.Data
         }
         public int AddCountry(Country country)
         {
-            // var sql = string.Format(@"insert into Country select Countryname from Country where not exists(select CountryName from Country where CountryName =(@CountryName))");
             var sql = string.Format(@"insert into [dbo].[Country](CountryName)values(@CountryName)");
             var parameters = new List<SqlParameter>
            {
@@ -53,12 +42,6 @@ namespace Training.Data
         }
         public int DeteleCountry(Country country)
         {
-            //   string sql = "delete from [dbo].[Country] where Id=(@countryID)";
-            //   var parameters = new List<SqlParameter>
-            //    { 
-            //        new SqlParameter("@countryID",country.Id),                           
-            //};
-            //   return DBHelper.ExecuteCommand(sql, parameters.ToArray());
             throw new NotImplementedException();
         }
         public DataTable GetCountries()
@@ -72,14 +55,32 @@ namespace Training.Data
         public int DeleteCountry(Country country)
         {
 
-            string sql = "delete from [dbo].[Country] where Id=(@countryID)";
+            string sql = string.Format(@"delete from [dbo].[Country] where Id=(@countryID)");
 
             var parameters = new List<SqlParameter>
             { 
                 new SqlParameter("@countryID",country.Id)                         
         };
             return DBHelper.ExecuteCommand(sql, parameters.ToArray());
-            throw new NotImplementedException();
+            
+        }
+        public int DeleteCountryOfRegion(Country country)
+        {
+            string sql = string.Format(@"delete from [dbo].[Region] where CountryId=(@countryId)");
+            var parameters=new List<SqlParameter>
+            {
+                new SqlParameter("@countryId",country.Id)
+            };
+            return DBHelper.ExecuteCommand(sql, parameters.ToArray());
+        }
+        public DataTable GetSelectRegion(int countryId)
+        {
+            var sql = string.Format(@"select * from Region where CountryId=(@countryId)");
+            var parametsers = new List<SqlParameter>
+               {
+                  new SqlParameter("@countryId",countryId)
+              };
+            return DBHelper.GetDataSet(sql, parametsers.ToArray());
         }
     }
 }

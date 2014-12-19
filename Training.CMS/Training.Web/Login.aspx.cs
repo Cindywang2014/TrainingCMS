@@ -44,7 +44,8 @@ namespace Training.Web
                 result.Close();
                 if (exist)
                 {
-                    Response.Write("<script>alert('登录成功！');</script>");
+                    Session.Remove("UserName");
+                    Session["UserName"] = UserNameTextLogin.Text;
                     Response.Redirect("Index.aspx");
                 }
                 else

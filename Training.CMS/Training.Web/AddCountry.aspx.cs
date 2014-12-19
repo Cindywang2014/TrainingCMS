@@ -132,5 +132,9 @@ namespace Training.Web
             GvShowCountry.EditIndex = -1;//return to original state
             Bind();
         }
+        protected void ToIndex_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
+        }
     }
 }

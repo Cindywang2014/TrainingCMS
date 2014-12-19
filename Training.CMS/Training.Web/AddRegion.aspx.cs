@@ -127,6 +127,11 @@ namespace Training.Web
             BindCountry();
             
         }
+
+        protected void ToIndex_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
+        }
     }
 }
 

@@ -17,7 +17,7 @@ namespace Training.Service
         {
             MovieStore = StoreFactory.GetMovieStore();
         }
-
+     
         public int AddMovie(Movie movie)
         {
             return MovieStore.AddMovie(movie);
@@ -33,7 +33,7 @@ namespace Training.Service
             return MovieStore.DeleteMovie(movie);
         }
 
-        public int IsAudit(Movie movie)
+        public int IsAudit(Movie movie) 
         {
             return MovieStore.IsAudit(movie);
         }
@@ -42,6 +42,10 @@ namespace Training.Service
             return MovieStore.GetMovies();
         }
 
+        public DataTable UnauditedMovie()
+        {
+            return MovieStore.UnauditedMovie();
+        }
         public DataTable ShowMovie(int movieId)
         {
             return MovieStore.ShowMovie(movieId);
@@ -54,10 +58,6 @@ namespace Training.Service
 
         public DataTable GetMovies(string typename, string actor)
         {
-            if (actor.Equals("Input the name of actor or movie.."))
-            {
-                actor = string.Empty;
-            }
             return MovieStore.GetMovies(typename, actor);
         }
     }

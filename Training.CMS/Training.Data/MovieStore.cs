@@ -83,6 +83,13 @@ namespace Training.Data
             //
             return DBHelper.GetDataSet(sql);
         }
+
+        public DataTable UnauditedMovie()
+        {
+            var sql = string.Format(@"SELECT * FROM [dbo].[Movie],[dbo].[MovieType] WHERE [dbo].[Movie].MovieTypeId=[dbo].[MovieType].Id and IsAudit=0");
+            return DBHelper.GetDataSet(sql);
+        }
+
         public DataTable GetMovies()
         {
             var sql = string.Format(@"SELECT * FROM [dbo].[Movie],[dbo].[MovieType] WHERE [dbo].[Movie].MovieTypeId=[dbo].[MovieType].Id");
@@ -102,7 +109,7 @@ namespace Training.Data
 
             if (!string.IsNullOrEmpty(actor))
             {
-                actor = string.Format(" and (Actor like '%{0}%' or MovieName like '{1}')", actor, actor);
+                actor = string.Format(" and Actor='{0}'", actor);
             }
 
             var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 {0}{1} order by UploadDate desc", typename, actor);

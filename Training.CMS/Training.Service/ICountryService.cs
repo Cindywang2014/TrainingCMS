@@ -10,6 +10,7 @@ namespace Training.Service
 {
    public interface ICountryService
     {
+       DataTable GetSelectRegion(int countryName);
         int ExperimentalCountry(Country country);
         /// <summary>
         /// add a country
@@ -29,6 +30,7 @@ namespace Training.Service
         /// <param name="country"></param>
         /// <returns></returns>
         int DeleteCountry(Country country);
+        int DeleteCountryOfRegion(Country country);
         /// <summary>
         /// Get all countries
         /// </summary>

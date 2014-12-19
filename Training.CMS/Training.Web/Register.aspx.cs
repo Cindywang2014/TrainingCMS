@@ -18,21 +18,25 @@ namespace Training.Web
         {
             if (!IsPostBack)
             {
+                BindCountryAndRegion();                           
+            }
+        }
+        public void BindCountryAndRegion()
+        {
                 var countryService = new CountryService();
-                var resultCountry = countryService.GetCountries();
+                DataTable resultCountry = countryService.GetCountries();
                 CountryDropDownList.DataSource = resultCountry;
                 CountryDropDownList.DataTextField = "CountryName";
                 CountryDropDownList.DataValueField = "Id";
                 CountryDropDownList.DataBind();
-                var regionService = new RegionService();
-                var resultRegion = regionService.GetRegions();
-                RegionDropDownList.DataSource = resultRegion;
+
+                var countryId = Convert.ToInt32(CountryDropDownList.SelectedValue);              
+                RegionDropDownList.DataSource = countryService.GetSelectRegion(countryId).DataSet;
                 RegionDropDownList.DataTextField = "RegionName";
                 RegionDropDownList.DataValueField = "Id";
                 RegionDropDownList.DataBind();
-            }
-        }
 
+        }
         public bool CheckTextbox()
         {
             bool satisfyThree = true;
@@ -118,6 +122,26 @@ namespace Training.Web
         protected void UserNameTextRegister_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void CountryDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var countryId = Convert.ToInt32(CountryDropDownList.SelectedValue);                    
+            var countryService = new CountryService();
+            RegionDropDownList.DataSource = countryService.GetSelectRegion(countryId).DataSet;
+            RegionDropDownList.DataTextField = "RegionName";
+            RegionDropDownList.DataValueField = "Id";
+            RegionDropDownList.DataBind();
+            this.PasswordTextRegister.Attributes["value"] = PasswordTextRegister.Text.Trim();
+            this.PasswordRepeatText.Attributes["value"] = PasswordRepeatText.Text.Trim();
+           
+            
+
+        }
+
+        protected void ToIndex_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
         }
     }
 }

@@ -49,6 +49,8 @@ namespace Training.Data
         /// get all movies
         /// </summary>
         /// <returns></returns>
+        
+        DataTable UnauditedMovie();
         DataTable GetMovies();
 
         DataTable GetMovies(string typename,string actor);

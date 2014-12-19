@@ -106,9 +106,11 @@ namespace Training.Web
             movieTypeService.UpdateMovieType(movietype);
             GvShowMovieType.EditIndex = -1;
             BindMovieType();
+        }
 
-           
-
+        protected void ToIndex_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
         }
     }
 }

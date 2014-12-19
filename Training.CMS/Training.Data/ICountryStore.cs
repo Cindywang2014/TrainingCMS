@@ -10,6 +10,7 @@ namespace Training.Data
 {
      public interface ICountryStore
     {
+         
          int ExperimentalCountry(Country country);
         /// <summary>
         /// add a country
@@ -29,10 +30,17 @@ namespace Training.Data
         /// <param name="country"></param>
         /// <returns></returns>
         int DeleteCountry(Country country);
+        int DeleteCountryOfRegion(Country country);
         /// <summary>
         /// Get all countries
         /// </summary>
         /// <returns></returns>
         DataTable GetCountries();
+         /// <summary>
+         /// Get Selcet Region for Country
+         /// </summary>
+         /// <param name="countryId"></param>
+         /// <returns></returns>
+         DataTable GetSelectRegion(int countryId);
     }
 }

@@ -13,12 +13,12 @@
 <body>
 
     <form id="form1" runat="server" style="display: table; margin: 10px auto">
-            <div style="float: left">
-                <asp:TextBox ID="MovieNameText" runat="server" /><asp:Button ID="QueryMovie" runat="server" Text="Query" OnClick="QueryMovie_Click" />
-            </div>
+            <asp:TextBox ID="MovieNameText" runat="server" /><asp:Button ID="QueryMovie" runat="server" Text="Query" OnClick="QueryMovie_Click" />           
             <asp:LinkButton ID="AllMovies" runat="server" OnClick="AllMovies_Click">ShowAllMovies</asp:LinkButton>
+            <asp:LinkButton ID="UnauditedMovie" runat="server" OnClick="UnauditedMovie_Click">UnauditedMovie</asp:LinkButton>
             <div style="float: right">
                 <asp:LinkButton ID="AddButton" runat="server" OnClick="AddButton_Click">AddMovie</asp:LinkButton>
+                <asp:LinkButton ID="ToIndex" runat="server" OnClick="ToIndex_Click">ToIndex</asp:LinkButton>
             </div>      
         <div>
             <asp:GridView ID="MovieGridView" runat="server" AutoGenerateColumns="False" Caption="Maintenance of the movie"

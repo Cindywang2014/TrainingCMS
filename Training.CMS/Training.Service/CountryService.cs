@@ -11,12 +11,11 @@ namespace Training.Service
 {
    public  class CountryService:ICountryService
     {
-       //private readonly ICountryStore CountryStore;
 
-       //public CountryService()
-       // {
-       //     CountryStore = StoreFactory.GetCountryStore();
-       // }
+       public DataTable GetSelectRegion(int countryId)
+       {
+           return StoreFactory.GetCountryStore().GetSelectRegion(countryId);
+       }
        public int ExperimentalCountry(Country country)
        {
            return StoreFactory.GetCountryStore().ExperimentalCountry(country);
@@ -35,6 +34,10 @@ namespace Training.Service
         public int DeleteCountry(Country country)
         {
             return StoreFactory.GetCountryStore().DeleteCountry(country);
+        }
+       public int DeleteCountryOfRegion(Country country)
+        {
+            return StoreFactory.GetCountryStore().DeleteCountryOfRegion(country);
         }
 
         public DataTable GetCountries()

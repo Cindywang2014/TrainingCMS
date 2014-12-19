@@ -29,7 +29,7 @@
         <asp:Label ID="EmailWrong" runat="server" ForeColor="Red" Visible="False"></asp:Label>
         <br />
         <asp:Label ID="Country" runat="server" Text="Country:"></asp:Label>
-        <asp:DropDownList ID="CountryDropDownList" runat="server" >
+        <asp:DropDownList ID="CountryDropDownList" AutoPostBack="true"  OnSelectedIndexChanged="CountryDropDownList_SelectedIndexChanged" runat="server" >
         </asp:DropDownList>
         <br />
         <br />
@@ -42,6 +42,7 @@
         <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="提交注册信息" />
         <br />
         <br />
+        <asp:LinkButton ID="ToIndex" runat="server" OnClick="ToIndex_Click">ToIndex</asp:LinkButton>
     </div>
         
     </form>

@@ -49,6 +49,15 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.LinkButton AllMovies;
         
         /// <summary>
+        /// UnauditedMovie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+      
+        
+        /// <summary>
         /// AddButton control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace Training.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton AddButton;
+        
+        /// <summary>
+        /// ToIndex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ToIndex;
         
         /// <summary>
         /// MovieGridView control.
