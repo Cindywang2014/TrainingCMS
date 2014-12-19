@@ -4,11 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Resgion</title>
+    <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="dist/css/flat-ui.css" rel="stylesheet" />
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="display:table; margin:20px auto">
     <p>添加地区</p>
         选择国家：<asp:DropDownList ID="DDLCountry" AutoPostBack="true" OnSelectedIndexChanged="DDLCountry_SelectedIndexChanged" runat="server"></asp:DropDownList>
     添加地区：<asp:TextBox ID="RegionNamebox" runat="server"></asp:TextBox><asp:Button ID="BtnAddRegion" OnClick="BtnAddRegion_Click" runat="server" Text="添加" />

@@ -15,7 +15,7 @@ namespace Training.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 BindMovieType();
             }
@@ -28,10 +28,18 @@ namespace Training.Web
 
             var movieTypeService = new MovieTypeService();
             int count = movieTypeService.ExperimentalType(movieType);
-            if(count<=0)
+            if (count <= 0)
             {
-                movieTypeService.AddMovieType(movieType);
-                BindMovieType();
+                var result = movieTypeService.AddMovieType(movieType);
+                if (result == 1)
+                {
+                    BindMovieType();
+                    Response.Write("<script>alert('添加成功')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('添加失败！')</script>");
+                }
             }
             else
             {
@@ -40,7 +48,7 @@ namespace Training.Web
         }
         public void BindMovieType()
         {
-          
+
             var movieTypeService = new MovieTypeService();
             GvShowMovieType.DataKeyNames = new string[] { "Id" };
             GvShowMovieType.DataSource = movieTypeService.GetMovieTypes();
@@ -48,7 +56,7 @@ namespace Training.Web
         }
         protected void GvShowMovieType_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            
+
             GvShowMovieType.PageIndex = e.NewPageIndex;
             BindMovieType();
         }
@@ -79,7 +87,7 @@ namespace Training.Web
             var movieTypeService = new MovieTypeService();
             movieTypeService.DeteleMovieType(movieType);
             BindMovieType();
-           
+
         }
 
         protected void GvShowMovieType_RowEditing(object sender, GridViewEditEventArgs e)
@@ -90,22 +98,32 @@ namespace Training.Web
 
         protected void GvShowMovieType_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            
+
             //get edit row key value
             string typeID = GvShowMovieType.DataKeys[e.RowIndex].Value.ToString();
-            //取得文本框中输入的内容
-            string typeName=((TextBox)(GvShowMovieType.Rows[e.RowIndex].Cells[0].Controls[0])).Text.ToString().Trim();
-           
-
+            string typeName = ((TextBox)(GvShowMovieType.Rows[e.RowIndex].Cells[0].Controls[0])).Text.ToString().Trim();
             var movietype = new MovieType();
-            
-                movietype.Id = Convert.ToInt32(typeID);
-                movietype.TypeName = typeName;
-
-            var movieTypeService = new MovieTypeService();
-            movieTypeService.UpdateMovieType(movietype);
-            GvShowMovieType.EditIndex = -1;
-            BindMovieType();
+            movietype.Id = Convert.ToInt32(typeID);
+            movietype.TypeName = typeName;
+            if (!string.IsNullOrWhiteSpace(movietype.TypeName))
+            {
+                var movieTypeService = new MovieTypeService();
+                var result = movieTypeService.UpdateMovieType(movietype);
+                if (result == 1)
+                {
+                    Response.Write("<script>alert('修改成功')</script>");
+                    GvShowMovieType.EditIndex = -1;
+                    BindMovieType();
+                }
+                else
+                {
+                    Response.Write("<script>alert('修改失败')</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('内容不能为空')</script>");
+            }
         }
 
         protected void ToIndex_Click(object sender, EventArgs e)

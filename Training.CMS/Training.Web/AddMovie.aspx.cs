@@ -46,8 +46,15 @@ namespace Training.Web
                     IsAudit = false
                 };
                 var movieService = new MovieService();
-                movieService.AddMovie(movie);
-                Response.Redirect("MovieMaintenance.aspx");
+                var result = movieService.AddMovie(movie);
+                if (result == 1)
+                { 
+                    Response.Redirect("MovieMaintenance.aspx"); 
+                }
+                else
+                {
+                    Response.Write("<script>alert('添加失败')</script>");
+                }
             }
         }
         protected bool EmptyCheck()

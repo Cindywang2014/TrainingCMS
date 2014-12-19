@@ -21,8 +21,6 @@
         <asp:TextBox ID="ActorBox" runat="server"></asp:TextBox>
         <br />
         图片<br />
-        <asp:Image ID="Image" runat="server" Height="100px" Width="150px"/>
-        <br />
         <asp:FileUpload ID="ImageUpload" runat="server" />
         描述<br />
         <asp:TextBox ID="DescriptionBox" runat="server" Height="100px" TextMode="MultiLine" Width="300px"></asp:TextBox>

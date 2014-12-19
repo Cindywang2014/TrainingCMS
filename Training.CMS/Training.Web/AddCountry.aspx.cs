@@ -36,16 +36,22 @@ namespace Training.Web
             country.CountryName = CountryNamebox.Text.ToString().Trim();
             var countryService = new CountryService();
             int count = countryService.ExperimentalCountry(country);
-            if (String.IsNullOrWhiteSpace(country.CountryName))            
+            if (String.IsNullOrWhiteSpace(country.CountryName))
             {
                 Response.Write("<script>alert('还啥都没写呢')</script>");
-
             }
             else if (count <= 0)
             {
-                countryService.AddCountry(country);
-                Bind();
-
+                var result = countryService.AddCountry(country);
+                if (result == 1)
+                {
+                    Bind();
+                    Response.Write("<script>alert('添加成功')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('添加失败！')</script>");
+                }
             }
             else
             {
@@ -94,7 +100,7 @@ namespace Training.Web
 
                 var countryService = new CountryService();
                 countryService.DeleteCountry(country);
-                
+
                 Response.Write("<script>alert('删除成功')</script>");
             }
             else
@@ -119,18 +125,34 @@ namespace Training.Web
             //取得文本框中输入的内容
             string countryName = ((TextBox)(GvShowCountry.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim();
 
-            var country = new Country()
+            var country = new Country();
+
+            country.Id = Convert.ToInt32(countryID);
+            country.CountryName = countryName;
+
+
+            if (!string.IsNullOrWhiteSpace(country.CountryName))
             {
-                Id = Convert.ToInt32(countryID),
-                CountryName = countryName
+                var countryService = new CountryService();
+                var result = countryService.UpdateCountry(country);
+                if (result == 1)
+                {
+                    Response.Write("<script>alert('修改成功')</script>");
+                    GvShowCountry.EditIndex = -1;
+                    Bind();
+                }
+                else
+                {
+                    Response.Write("<script>alert('修改失败')</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('国家不能为空')</script>");
+            }
 
-            };
+            //return to original state
 
-            var countryService = new CountryService();
-
-            countryService.UpdateCountry(country);
-            GvShowCountry.EditIndex = -1;//return to original state
-            Bind();
         }
         protected void ToIndex_Click(object sender, EventArgs e)
         {

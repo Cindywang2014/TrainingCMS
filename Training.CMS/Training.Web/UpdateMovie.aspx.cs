@@ -60,8 +60,15 @@ namespace Training.Web
                 IsAudit = PassedButten.Checked,
             };
             var movieService = new MovieService();
-            movieService.UpdateMovie(movie);
-            Response.Redirect("MovieMaintenance.aspx");
+            var result= movieService.UpdateMovie(movie);
+            if (result == 1)
+            {
+                Response.Redirect("MovieMaintenance.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('修改失败')</script>");
+            }
             }
         }
 

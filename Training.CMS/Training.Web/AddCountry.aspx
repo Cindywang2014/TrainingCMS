@@ -4,7 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>country</title>
+    <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="dist/css/flat-ui.css" rel="stylesheet" />
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,7 +18,7 @@
             display:none ;
             }
     </style>
-   <div>
+   <div style="display:table; margin:20px auto">
     输入国家名：<asp:TextBox ID="CountryNamebox" runat="server"></asp:TextBox>      
         <asp:Button ID="BtnAddCountry" OnClick="BtnAddCountry_Click" runat="server" Text="添加" />
         <asp:GridView ID="GvShowCountry" AutoGenerateColumns="false"

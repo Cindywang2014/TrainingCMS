@@ -35,8 +35,16 @@ namespace Training.Web
                 Id = Convert.ToInt32(movieId)
             };
             var movieServie = new MovieService();
-            movieServie.DeleteMovie(movie);
-            DataSourceBand();
+            var result = movieServie.DeleteMovie(movie);
+            if (result == 1)
+            {
+                DataSourceBand();
+                Response.Write("<script>alert('删除成功')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('删除失败')</script>");
+            }
         }
 
 
