@@ -13,8 +13,8 @@
     <form runat="server">
         <header>
             <div class="headertop">
-                <div style="float: left;">
-                    <img style="display: inline;" src="/Images/Logo.png" />
+                <div class="logo">
+                    <img src="/Images/Logo.png" />
                 </div>
                 <div style="float: left; width: 700px; line-height: 47px;">
                     <label>Choose MovieType:</label>
@@ -26,13 +26,9 @@
             </div>
 
             <nav>
-                <a href="#">Movie</a>
-                <a href="#">Teleplay</a>
-                <a href="#">Anime</a>
-                <a href="#">Sports</a>
-                <a href="#">Music</a>
-                <a href="#">Variety</a>
+                <a href="#">Movie</a><a href="#">Teleplay</a><a href="#">Anime</a><a href="#">Sports</a><a href="#">Music</a><a href="#">Variety</a>
             </nav>
+
         </header>
 
         <section>
@@ -45,7 +41,9 @@
                     <div class="datapagecontrol">
                         <asp:DataPager ID="DataPager" PageSize="9" runat="server">
                             <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Link" ButtonCssClass="datapage" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                <asp:NextPreviousPagerField ButtonType="Link" PreviousPageText="Prev" ButtonCssClass="datapage" ShowFirstPageButton="true" ShowNextPageButton="false" />
+                                <asp:NumericPagerField ButtonCount="3"  />
+                                <asp:NextPreviousPagerField ButtonType="Link" ButtonCssClass="datapage" ShowLastPageButton="true" ShowPreviousPageButton="false" />
                             </Fields>
                         </asp:DataPager>
                     </div>
@@ -81,9 +79,13 @@
 
 <script>
     $(document).ready(function () {
+        if ($("#InputActor").val() != "Input the name of actor or movie..") {
+            $("#InputActor").css("color", "black");
+        }
         $("#InputActor").focus(function () {
-            if ($(this).val() == "Input the name of actor or movie..")
+            if ($(this).val() == "Input the name of actor or movie..") {
                 $(this).val("");
+            }
             $(this).css("color", "black");
         });
 

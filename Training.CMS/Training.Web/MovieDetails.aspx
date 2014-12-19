@@ -17,8 +17,8 @@
             padding: 20px;
             height: 170px;
             width: 60%;
-            background: url(/Images/background.jpg);
-            background-size: 100% 210px;
+            background: url(/Images/background.jpg) 0 -30px;
+            background-size: 100% 260px;
         }
 
         section {
