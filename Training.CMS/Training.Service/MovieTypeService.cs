@@ -14,12 +14,12 @@ namespace Training.Service
         }
         public int ExperimentalType(MovieType movietype)
         {
-            return StoreFactory.GetMovieTypeStore().ExperimentalType(movietype);
+            return MovieTypeStore.ExperimentalType(movietype);
         }
         public int AddMovieType(MovieType movietype)
         {
 
-            return StoreFactory.GetMovieTypeStore().AddMovieType(movietype);
+            return MovieTypeStore.AddMovieType(movietype);
 
         }
         public int UpdateMovieType(MovieType movietype)

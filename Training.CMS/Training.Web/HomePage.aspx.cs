@@ -48,11 +48,6 @@ namespace Training.Web
             ConsilientMoviesDatabound();
         }
 
-        protected void ChooseMovieType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //ShowQueryResult();
-        }
-
         protected void SubmitCondition_Click(object sender, EventArgs e)
         {
             ShowQueryResult();

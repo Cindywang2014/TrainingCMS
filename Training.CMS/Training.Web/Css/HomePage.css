@@ -24,17 +24,23 @@ header {
 }
 
 .headertop {
-    display: table;
     margin: 0 auto;
+    height: 50px;
+}
+
+.logo {
+    margin-right: 100px;
+    float: left;
 }
 
 #ChooseMovieType {
-    height: 30px;
     margin-right: 20px;
+    height: 30px;
     border-radius: 3px;
 }
 
 #InputActor {
+    padding: 1px 2px;
     width: 300px;
     height: 24px;
     color: #acb7bf;
@@ -53,7 +59,7 @@ nav {
     margin-top: 25px;
     padding: 5px;
     text-align: center;
-    background-color: #a09d8e;
+    background-color: #5DADE2;
 }
 
     nav a {
@@ -87,7 +93,7 @@ section {
 .itemleft {
     float: left;
     height: 130px;
-    border: 2px solid #a09d8e;
+    border: 2px solid #acb7bf;
 }
 
 .itemright {
@@ -97,7 +103,7 @@ section {
     width: 195px;
     height: 129px;
     font-size: 13px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .datapagecontrol {
