@@ -118,7 +118,7 @@ namespace Training.Data
 
             if (!string.IsNullOrEmpty(actor))
             {
-                actor = string.Format(" and (Actor like '%{0}%' or MovieName like '{1}')", actor, actor);
+                actor = string.Format(" and (Actor like '%{0}%' or MovieName like '%{1}%')", actor, actor);
             }
 
             var sql = string.Format(@"select * from [dbo].[Movie] where IsAudit=1 {0}{1} order by UploadDate desc", typename, actor);

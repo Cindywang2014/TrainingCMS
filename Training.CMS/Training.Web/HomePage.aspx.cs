@@ -50,7 +50,7 @@ namespace Training.Web
 
         protected void ChooseMovieType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowQueryResult();
+            //ShowQueryResult();
         }
 
         protected void SubmitCondition_Click(object sender, EventArgs e)

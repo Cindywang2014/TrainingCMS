@@ -6,11 +6,11 @@ namespace Training.Service
 {
     public class MovieTypeService : IMovieTypeService
     {
-       // private readonly IMovieTypeStore MovieTypeStore;
-        
+        private readonly IMovieTypeStore MovieTypeStore;
+
         public MovieTypeService()
         {
-           // MovieTypeStore = StoreFactory.GetMovieTypeStore();
+            MovieTypeStore = StoreFactory.GetMovieTypeStore();
         }
         public int ExperimentalType(MovieType movietype)
         {
@@ -20,23 +20,23 @@ namespace Training.Service
         {
 
             return StoreFactory.GetMovieTypeStore().AddMovieType(movietype);
-          
+
         }
         public int UpdateMovieType(MovieType movietype)
         {
-            return StoreFactory.GetMovieTypeStore().UpdateMovieType(movietype);
-            
+            return MovieTypeStore.UpdateMovieType(movietype);
+
         }
 
         public int DeteleMovieType(MovieType movietype)
         {
-            return StoreFactory.GetMovieTypeStore().DeteleMovieType(movietype);
-           
+            return MovieTypeStore.DeteleMovieType(movietype);
+
         }
 
         public DataTable GetMovieTypes()
         {
-            return new MovieTypeStore().GetMovieTypes();
+            return MovieTypeStore.GetMovieTypes();
         }
     }
 }

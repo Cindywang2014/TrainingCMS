@@ -65,6 +65,10 @@ namespace Training.Service
             {
                 actor = string.Empty;
             }
+            else
+            {
+                actor = actor.Trim();
+            }
             return MovieStore.GetMovies(typename, actor);
         }
     }
