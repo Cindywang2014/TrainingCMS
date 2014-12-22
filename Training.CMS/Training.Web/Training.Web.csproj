@@ -91,6 +91,8 @@
     <Content Include="Images\user.jpg" />
     <Content Include="ModifyUser.aspx" />
     <Content Include="WebFormTest.aspx" />
+    <None Include="Properties\PublishProfiles\delaware.pubxml" />
+    <None Include="Properties\PublishProfiles\DelawareTraining.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

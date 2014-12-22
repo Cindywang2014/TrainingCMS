@@ -11,7 +11,6 @@
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body style="height: 500px">
-    <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
     <form id="form1" runat="server">
     <div style="text-align:center">
     <asp:Label ID="UserNameRegister" runat="server" Text="用户名："></asp:Label>
