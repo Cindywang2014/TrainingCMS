@@ -39,8 +39,7 @@ namespace Training.Web
         }
         protected void BtnAddCountry_Click(object sender, EventArgs e)
         {
-
-            var country = new Country();
+         var country = new Country();
             country.CountryName = CountryNamebox.Text.ToString().Trim();
             var countryService = new CountryService();
             int count = countryService.ExperimentalCountry(country);
@@ -73,6 +72,8 @@ namespace Training.Web
             Bind();
         }
 
+
+
         protected void GvShowCountry_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GvShowCountry.EditIndex = -1;
@@ -95,21 +96,28 @@ namespace Training.Web
 
 
 
+
             string countryID = GvShowCountry.DataKeys[e.RowIndex].Value.ToString();
 
             var region = new Region();
             region.CountryId = Convert.ToInt32(countryID);
             var regionService = new RegionService();
             int count = regionService.ExperimentalRegionCount(region);
-            if (count <= 0)
+            if (count == 0)
             {
                 var country = new Country();
                 country.Id = Convert.ToInt32(countryID);
 
                 var countryService = new CountryService();
-                countryService.DeleteCountry(country);
-
-                Response.Write("<script>alert('删除成功')</script>");
+                var result = countryService.DeleteCountry(country);
+                if (result == 1)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "", "<script>if(confirm('删除吗？')){}else{}</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('删除失败')</script>");
+                }
             }
             else
             {
@@ -129,8 +137,9 @@ namespace Training.Web
         {
 
             //get edit row key value
+            //get edit row key value
             string countryID = GvShowCountry.DataKeys[e.RowIndex].Value.ToString();
-            //取得文本框中输入的内容
+            //get textbox text
             string countryName = ((TextBox)(GvShowCountry.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim();
 
             var country = new Country();
@@ -142,12 +151,28 @@ namespace Training.Web
             if (!string.IsNullOrWhiteSpace(country.CountryName))
             {
                 var countryService = new CountryService();
-                var result = countryService.UpdateCountry(country);
-                if (result == 1)
+                var regionService = new RegionService();
+                var region = new Region();
+                //var count = regionService.ExperimentalRegionCount(region);
+
+
+                var count = countryService.ExperimentalCountry(country);
+
+                if (count == 0)
                 {
-                    Response.Write("<script>alert('修改成功')</script>");
-                    GvShowCountry.EditIndex = -1;
-                    Bind();
+                    var result = countryService.UpdateCountry(country);
+                    if (result == 1)
+                    {
+                        Response.Write("<script>alert('修改成功')</script>");
+                        GvShowCountry.EditIndex = -1;
+                        Bind();
+                    }
+                    else
+                    {
+                        GvShowCountry.EditIndex = -1;
+                        Response.Write("<script>alert('已经存在')</script>");
+                    }
+
                 }
                 else
                 {
@@ -160,8 +185,8 @@ namespace Training.Web
             }
 
             //return to original state
-
         }
+        
         protected void ToIndex_Click(object sender, EventArgs e)
         {
             Response.Redirect("Index.aspx");

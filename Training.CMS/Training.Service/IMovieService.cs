@@ -10,6 +10,7 @@ namespace Training.Service
 {
     public interface IMovieService
     {
+        int ExperimentalMovieCount(Movie movie);
         /// <summary>
         /// add a movie
         /// </summary>

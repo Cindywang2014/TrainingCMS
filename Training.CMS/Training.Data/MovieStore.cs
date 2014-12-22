@@ -11,6 +11,15 @@ namespace Training.Data
 {
     public class MovieStore : IMovieStore
     {
+        public int ExperimentalMovieCount(Movie movie)
+        {
+            var sql = string.Format(@"select count(MovieName) from Movie where MovieTypeId=(@MovieTypeId)");
+            var parametsers = new List<SqlParameter>
+               {
+                  new SqlParameter("@MovieTypeId",movie.MovieTypeId)
+              };
+            return DBHelper.GetScalar(sql, parametsers.ToArray());
+        }
         public int AddMovie(Movie movie)
         {
             var sql = string.Format(@"insert into [dbo].[Movie](MovieTypeId,MovieName,Description,Actor,Image,UploadDate,IsAudit) 

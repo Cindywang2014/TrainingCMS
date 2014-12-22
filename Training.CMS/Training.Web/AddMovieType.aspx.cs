@@ -36,7 +36,7 @@ namespace Training.Web
 
             var movieTypeService = new MovieTypeService();
             int count = movieTypeService.ExperimentalType(movieType);
-            if (count <= 0)
+            if (count == 0)
             {
                 var result = movieTypeService.AddMovieType(movieType);
                 if (result == 1)
@@ -77,11 +77,11 @@ namespace Training.Web
 
         protected void GvShowMovieType_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)//判定当前的行是否属于datarow类型的行
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                //当鼠标放上去的时候 先保存当前行的背景颜色 并给附一颜色
+                
                 e.Row.Attributes.Add("onmouseover", "currentcolor=this.style.backgroundColor;this.style.backgroundColor='#7f9edb',this.style.fontWeight='';");
-                //当鼠标离开的时候 将背景颜色还原的以前的颜色
+                
                 e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=currentcolor,this.style.fontWeight='';");
             }
         }
@@ -90,12 +90,33 @@ namespace Training.Web
         {
             string typeID = GvShowMovieType.DataKeys[e.RowIndex].Value.ToString();
             var movieType = new MovieType();
+            var movie = new Movie();
+            movie.MovieTypeId = Convert.ToInt32(typeID);
+            var movieServcie = new MovieService();
+            var count = movieServcie.ExperimentalMovieCount(movie);
             movieType.Id = Convert.ToInt32(typeID);
-
+           
+            if(count==0)
+            {
             var movieTypeService = new MovieTypeService();
-            movieTypeService.DeteleMovieType(movieType);
-            BindMovieType();
+            var reult=movieTypeService.DeteleMovieType(movieType); 
+                if(reult==1)
+                {
 
+                    ClientScript.RegisterStartupScript(this.GetType(), "", "<script>if(confirm('删除吗？')){}else{}</script>");
+                BindMovieType();
+                }
+                else
+                {
+                    Response.Write("<script>alert('删除失败')</script>");
+                }
+
+            }
+
+            else
+            {
+                Response.Write("<script>alert('类型内包括电影信息，不能删除类型')</script>");
+            }
         }
 
         protected void GvShowMovieType_RowEditing(object sender, GridViewEditEventArgs e)
@@ -138,5 +159,7 @@ namespace Training.Web
         {
             Response.Redirect("Index.aspx");
         }
+
+        public Movie movie { get; set; }
     }
 }

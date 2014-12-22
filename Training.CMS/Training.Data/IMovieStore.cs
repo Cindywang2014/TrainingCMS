@@ -10,6 +10,7 @@ namespace Training.Data
 {
     public interface IMovieStore
     {
+        int ExperimentalMovieCount(Movie movie);
         /// <summary>
         /// add a movie
         /// </summary>

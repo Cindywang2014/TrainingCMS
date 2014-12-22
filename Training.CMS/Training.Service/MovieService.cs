@@ -17,7 +17,10 @@ namespace Training.Service
         {
             MovieStore = StoreFactory.GetMovieStore();
         }
-
+        public int ExperimentalMovieCount(Movie movie)
+        {
+            return MovieStore.ExperimentalMovieCount(movie);
+        }
         public int AddMovie(Movie movie)
         {
             return MovieStore.AddMovie(movie);

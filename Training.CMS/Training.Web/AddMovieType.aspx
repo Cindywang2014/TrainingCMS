@@ -11,8 +11,14 @@
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
-    <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
+     <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
     <form id="form1" runat="server">
+        <style  type="text/css">
+        .yangshi
+        {
+            display:none ;
+            }
+    </style>
     <div style="display:table; margin:20px auto">
     输入电影类型：<asp:TextBox ID="MovieTypeBox" runat="server"></asp:TextBox>
         <asp:Button ID="BtnAddMovieType" runat="server" OnClick="BtnAddMovieType_Click" Text="添加" />
@@ -22,17 +28,23 @@
              OnRowDataBound="GvShowMovieType_RowDataBound"
              OnRowDeleting="GvShowMovieType_RowDeleting"
              OnRowEditing="GvShowMovieType_RowEditing"
-             OnRowUpdating="GvShowMovieType_RowUpdating" AllowPaging="true" PageSize="10" Caption="电影类型信息维护" runat="server">
+             OnRowUpdating="GvShowMovieType_RowUpdating" AllowPaging="true" PageSize="10" Caption="电影类型信息维护" runat="server" HorizontalAlign="Center" Width="500px">
+            <HeaderStyle HorizontalAlign="Center" />
             <PagerSettings NextPageText="下一页" PreviousPageText="前一页" />
             <Columns>
+                
                 <%--<asp:BoundField DataField="Id" HeaderText="编号" ReadOnly="true" HeaderStyle-Width="0" SortExpression="MovieTypeId" >
                      <HeaderStyle CssClass="yangshi" />
                     <ItemStyle CssClass="yangshi" />
                     </asp:BoundField>--%>
-                <asp:BoundField DataField="TypeName" HeaderText="类型名称" SortExpression="TypeName" />
-                <asp:CommandField HeaderText="编辑" ShowEditButton="true" />
-                <asp:CommandField HeaderText="删除"  ShowDeleteButton="true" />
+                <asp:BoundField DataField="TypeName" HeaderStyle-HorizontalAlign="Center" HeaderText="类型名称" SortExpression="TypeName" />
+                <asp:CommandField HeaderText="编辑" HeaderStyle-HorizontalAlign="Center" ShowEditButton="true" />
+                <asp:CommandField HeaderText="删除" HeaderStyle-HorizontalAlign="Center"  ShowDeleteButton="true" />
+                
             </Columns>
+            
+            <PagerStyle HorizontalAlign="Center" />
+            <RowStyle HorizontalAlign="Center" />
             
         </asp:GridView>
         <asp:LinkButton ID="ToIndex" runat="server" OnClick="ToIndex_Click">ToIndex</asp:LinkButton>
