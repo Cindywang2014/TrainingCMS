@@ -11,6 +11,7 @@
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
+    <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
     <form id="form1" runat="server">
         <style  type="text/css">
         .yangshi

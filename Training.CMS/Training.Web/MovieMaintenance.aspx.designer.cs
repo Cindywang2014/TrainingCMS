@@ -13,6 +13,15 @@ namespace Training.Web {
     public partial class MovieMaintenance {
         
         /// <summary>
+        /// UserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UserName;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.LinkButton AllMovies;
         
         /// <summary>
-        /// UnauditedMovie control.
+        /// UnauditedMovies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton UnauditedMovie;
+        protected global::System.Web.UI.WebControls.LinkButton UnauditedMovies;
         
         /// <summary>
         /// AddButton control.

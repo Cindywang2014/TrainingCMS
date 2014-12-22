@@ -13,6 +13,15 @@ namespace Training.Web {
     public partial class Register {
         
         /// <summary>
+        /// UserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UserName;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Training.Web {
         protected global::System.Web.UI.WebControls.TextBox UserNameTextRegister;
         
         /// <summary>
+        /// UserPrompt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UserPrompt;
+        
+        /// <summary>
         /// UserWrong control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,24 @@ namespace Training.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PasswordTextRegister;
+        
+        /// <summary>
+        /// PasswordPrompt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PasswordPrompt;
+        
+        /// <summary>
+        /// FirstPasswordWrong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FirstPasswordWrong;
         
         /// <summary>
         /// PasswordRepeat control.

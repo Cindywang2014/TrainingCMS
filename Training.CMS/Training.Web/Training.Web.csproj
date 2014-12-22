@@ -87,6 +87,10 @@
     <Content Include="dist\fonts\lato\lato-regular.ttf" />
     <Content Include="dist\fonts\lato\lato-regular.woff" />
     <Content Include="dist\js\vendor\jquery.min.map" />
+    <Content Include="Images\reg.jpg" />
+    <Content Include="Images\user.jpg" />
+    <Content Include="ModifyUser.aspx" />
+    <Content Include="WebFormTest.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -150,7 +154,6 @@
     <Content Include="dist\js\vendor\video.js" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Images\black.jpg" />
     <Content Include="Images\blue.jpg" />
     <Content Include="Images\capt.jpg" />
@@ -224,6 +227,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModifyUser.aspx.cs">
+      <DependentUpon>ModifyUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyUser.aspx.designer.cs">
+      <DependentUpon>ModifyUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MovieDetails.aspx.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +262,13 @@
     </Compile>
     <Compile Include="UpdateMovie.aspx.designer.cs">
       <DependentUpon>UpdateMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFormTest.aspx.cs">
+      <DependentUpon>WebFormTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFormTest.aspx.designer.cs">
+      <DependentUpon>WebFormTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

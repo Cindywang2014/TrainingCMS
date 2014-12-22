@@ -17,7 +17,14 @@ namespace Training.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                UserName.Text = Session["UserName"].ToString();
+            }
             if (!IsPostBack)
             {
                 var source = new MovieTypeService().GetMovieTypes();

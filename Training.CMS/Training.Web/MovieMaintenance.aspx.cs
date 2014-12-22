@@ -13,6 +13,14 @@ namespace Training.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                UserName.Text = Session["UserName"].ToString();
+            }
             if (!IsPostBack)
             {
                 DataSourceBand();
@@ -97,9 +105,17 @@ namespace Training.Web
                         Id = Convert.ToInt32(movieId)
                     };
                     var movieServie = new MovieService();
-                    movieServie.IsAudit(movie);
-                    DataSourceBand();
-                    Response.Write("<script>alert('审核通过')</script>");
+                    var result=movieServie.IsAudit(movie);                 
+                    if (result == 1)
+                    {
+                        DataSourceBand();
+                        Response.Write("<script>alert('审核通过')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('审核失败')</script>");
+                    }
+
                 }
                 else
                 {

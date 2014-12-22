@@ -10,17 +10,23 @@
     <script src="dist/js/vendor/jquery.min.js"></script>
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
-<body style="height: 313px">
+<body style="height: 500px">
+    <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
     <form id="form1" runat="server">
     <div style="text-align:center">
     <asp:Label ID="UserNameRegister" runat="server" Text="用户名："></asp:Label>
         <asp:TextBox ID="UserNameTextRegister" runat="server" OnTextChanged="UserNameTextRegister_TextChanged"></asp:TextBox>
+        <br />
+        <asp:Label ID="UserPrompt" runat="server" Font-Size="Small" ForeColor="Gray" Text="提示：用户名由 3-10位的字母,下划线和数字组成,不能以数字或下划线开头。"></asp:Label>
         <br />
         <asp:Label ID="UserWrong" runat="server" ForeColor="Red" Visible="False"></asp:Label>
         <br />
         <asp:Label ID="PasswordRegister" runat="server" Text="请输入密码："></asp:Label>
         <asp:TextBox ID="PasswordTextRegister" runat="server" OnTextChanged="PasswordTextRegister_TextChanged" TextMode="Password"></asp:TextBox>
         <br />
+        <asp:Label ID="PasswordPrompt" runat="server" Font-Size="Small" ForeColor="Gray" Text="提示：请输入6-20个字母、数字、下划线。"></asp:Label>
+        <br />
+        <asp:Label ID="FirstPasswordWrong" runat="server" ForeColor="Red" Visible="False"></asp:Label>
         <br />
         <asp:Label ID="PasswordRepeat" runat="server" Text="请确认密码："></asp:Label>
         <asp:TextBox ID="PasswordRepeatText" runat="server" MaxLength="20" OnTextChanged="PasswordRepeatText_TextChanged" TextMode="Password"></asp:TextBox>

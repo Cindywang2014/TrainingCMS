@@ -10,6 +10,7 @@
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
+    <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
     <form id="form1" runat="server" style="display:table; margin:20px auto">
         电影名称<br />
         <asp:TextBox ID="MovieNameBox" runat="server" ></asp:TextBox>

@@ -23,7 +23,7 @@ namespace Training.Service
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        int DeteleUser(User user);
+        int DeleteUser(User user);
         /// <summary>
         /// Get all users
         /// </summary>

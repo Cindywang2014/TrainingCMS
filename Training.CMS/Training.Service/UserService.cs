@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using Training.Data;
 using Training.Domain;
@@ -20,17 +21,17 @@ namespace Training.Service
 
         public int UpdateUser(User user)
         {
-            throw new System.NotImplementedException();
+            return UserStore.UpdateUser(user);
         }
 
-        public int DeteleUser(User user)
+        public int DeleteUser(User user)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public DataTable GetUsers()
         {
-            throw new System.NotImplementedException();
+            return UserStore.GetUsers();
         }
         public SqlDataReader CheckRegisterUser(string userName)
         {

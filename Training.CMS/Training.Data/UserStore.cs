@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Training.Domain;
 
@@ -22,22 +23,33 @@ namespace Training.Data
 
         public int UpdateUser(User user)
         {
-            throw new System.NotImplementedException();
+            var sql = string.Format(@"update [dbo].[User] set Password=@Password,EmailAddress=@EmailAddress,Country=@Country,Region=@Region where UserName=@UserName");
+            var parameters = new List<SqlParameter>
+            {
+                 new SqlParameter("@UserName",user.UserName),
+                 new SqlParameter("@Password",user.Password),
+                 new SqlParameter("@EmailAddress",user.EmailAddress),
+                 new SqlParameter("@Country",user.Country),
+                 new SqlParameter("@Region",user.Region),
+            };
+            return DBHelper.ExecuteCommand(sql, parameters.ToArray());
         }
 
-        public int DeteleUser(User user)
+        public int DeleteUser(User user)
         {
+            //var sql = string.Format(@"delete from [dbo].[User] where ID=@ID");
+            //var parameters = new List<SqlParameter>
+            //{
+            //     new SqlParameter("@ID",user.Id),
+            //};
+            //return DBHelper.ExecuteCommand(sql, parameters.ToArray());
             return 1;
-        }
-
-        public int deleteUser(User user)
-        {
-            throw new System.NotImplementedException();
         }
 
         public System.Data.DataTable GetUsers()
         {
-            throw new System.NotImplementedException();
+            var sql = string.Format(@"select * from [dbo].[User]");
+            return DBHelper.GetDataSet(sql);
         }
 
         public SqlDataReader CheckRegisterUser(string userName)
@@ -60,7 +72,5 @@ namespace Training.Data
            };
             return DBHelper.GetReader(sql, parameters.ToArray());
         }
-
-
     }
 }

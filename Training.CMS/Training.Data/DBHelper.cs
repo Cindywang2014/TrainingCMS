@@ -5,8 +5,7 @@ using System.Data.SqlClient;
 
 namespace Training.Data
 {
-    public class DBHelper
-    {
+    public class DBHelper    {
         public static SqlConnection connection;
         public static SqlConnection Connection
         {

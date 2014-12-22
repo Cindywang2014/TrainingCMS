@@ -39,14 +39,14 @@
                 </div>
             </article>
             <article class="col-md-4 lesson-block lesson-block-series lesson-16 ">
-                <a href="Register.aspx">
+                <a href="ModifyUser.aspx">
                     <div class="full-center lesson-block-inner" 
-                         style="background: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/Images/blue.jpg); 
+                         style="background: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/Images/user.jpg); 
                          background-size: cover;">
                     </div>
                 </a>
                 <div class="lesson-block-excerpt">
-                    <p>This is Register.</p>
+                    <p>This is ModifyUser.</p>
                 </div>
             </article>
         </div>
@@ -65,7 +65,7 @@
             <article class="col-md-4 lesson-block lesson-block-series lesson-15 ">
                 <a href="AddRegion.aspx">
                     <div class="full-center lesson-block-inner" 
-                         style="background: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/Images/country.jpg); 
+                         style="background: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/Images/reg.jpg); 
                          background-size: cover;">
                     </div>
                 </a>

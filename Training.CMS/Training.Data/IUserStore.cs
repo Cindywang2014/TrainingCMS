@@ -23,7 +23,7 @@ namespace Training.Data
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        int deleteUser(User user);
+        int DeleteUser(User user);
         /// <summary>
         /// Get all users
         /// </summary>

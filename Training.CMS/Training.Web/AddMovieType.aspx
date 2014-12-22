@@ -11,6 +11,7 @@
     <script src="dist/js/flat-ui.min.js"></script>
 </head>
 <body>
+    <div style="float:right"><asp:Label ID="UserName" runat="server" Text="Label"></asp:Label></div>
     <form id="form1" runat="server">
     <div style="display:table; margin:20px auto">
     输入电影类型：<asp:TextBox ID="MovieTypeBox" runat="server"></asp:TextBox>

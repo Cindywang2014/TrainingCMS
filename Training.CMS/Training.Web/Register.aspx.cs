@@ -16,39 +16,60 @@ namespace Training.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                UserName.Text = Session["UserName"].ToString();
+            }
             if (!IsPostBack)
             {
-                BindCountryAndRegion();                           
+                BindCountryAndRegion();
             }
         }
         public void BindCountryAndRegion()
         {
-                var countryService = new CountryService();
-                DataTable resultCountry = countryService.GetCountries();
-                CountryDropDownList.DataSource = resultCountry;
-                CountryDropDownList.DataTextField = "CountryName";
-                CountryDropDownList.DataValueField = "Id";
-                CountryDropDownList.DataBind();
+            var countryService = new CountryService();
+            DataTable resultCountry = countryService.GetCountries();
+            CountryDropDownList.DataSource = resultCountry;
+            CountryDropDownList.DataTextField = "CountryName";
+            CountryDropDownList.DataValueField = "Id";
+            CountryDropDownList.DataBind();
 
-                var countryId = Convert.ToInt32(CountryDropDownList.SelectedValue);              
-                RegionDropDownList.DataSource = countryService.GetSelectRegion(countryId).DataSet;
-                RegionDropDownList.DataTextField = "RegionName";
-                RegionDropDownList.DataValueField = "Id";
-                RegionDropDownList.DataBind();
+            var countryId = Convert.ToInt32(CountryDropDownList.SelectedValue);
+            RegionDropDownList.DataSource = countryService.GetSelectRegion(countryId).DataSet;
+            RegionDropDownList.DataTextField = "RegionName";
+            RegionDropDownList.DataValueField = "Id";
+            RegionDropDownList.DataBind();
 
         }
         public bool CheckTextbox()
         {
             bool satisfyThree = true;
-            if (string.IsNullOrWhiteSpace(UserNameTextRegister.Text.Trim()) || string.IsNullOrWhiteSpace(PasswordTextRegister.Text.Trim()))
+            Regex regexUser = new Regex("^([a-zA-Z])([a-zA-Z0-9_]){2,9}$");
+            if (!regexUser.IsMatch(UserNameTextRegister.Text))
             {
                 UserWrong.Visible = true;
-                UserWrong.Text = "请注意：密码或用户名不能为空！";
+                UserWrong.Text = "请注意：用户名格式不正确！";
                 satisfyThree = false;
             }
             else
             {
                 UserWrong.Visible = false;
+            }
+
+            Regex regexPassword = new Regex(@"^(\w){6,20}$");
+            if (!regexPassword.IsMatch(PasswordTextRegister.Text))
+            {
+                FirstPasswordWrong.Visible = true;
+                FirstPasswordWrong.Text = "请注意：密码格式不正确！";
+                satisfyThree = false;
+            }
+            else
+            {
+                FirstPasswordWrong.Visible = false;
             }
 
             if (!PasswordTextRegister.Text.Equals(PasswordRepeatText.Text))
@@ -98,8 +119,15 @@ namespace Training.Web
                 }
                 else
                 {
-                    userService.AddUser(user);
-                    Response.Redirect("Login.aspx");
+                    var perform = userService.AddUser(user);
+                    if (perform == 1)
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('注册失败！');</script>");
+                    }
                 }
             }
         }
@@ -126,7 +154,7 @@ namespace Training.Web
 
         protected void CountryDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var countryId = Convert.ToInt32(CountryDropDownList.SelectedValue);                    
+            var countryId = Convert.ToInt32(CountryDropDownList.SelectedValue);
             var countryService = new CountryService();
             RegionDropDownList.DataSource = countryService.GetSelectRegion(countryId).DataSet;
             RegionDropDownList.DataTextField = "RegionName";
@@ -134,8 +162,8 @@ namespace Training.Web
             RegionDropDownList.DataBind();
             this.PasswordTextRegister.Attributes["value"] = PasswordTextRegister.Text.Trim();
             this.PasswordRepeatText.Attributes["value"] = PasswordRepeatText.Text.Trim();
-           
-            
+
+
 
         }
 
